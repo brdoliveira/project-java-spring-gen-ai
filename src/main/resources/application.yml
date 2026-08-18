@@ -1,0 +1,198 @@
+server:
+  port: 8081
+
+app:
+  ai:
+    provider: openai # or openai
+  agent:
+    use-chain-workflow: false
+    upload-dir: /Users/Shared/agent-files/uploads
+    diagram-tool:
+      temperature: 0.2
+    posture-tool:
+      url: http://localhost:8082/api/posture/{id}
+      env: prod
+    web-tool:
+      topK: 5
+      google-vertex-search:
+        endpoint-base-url: https://discoveryengine.googleapis.com
+        serving-config: projects/${GCP_PROJECT}/locations/global/collections/default_collection/dataStores/${DATASTORE_ID}/servingConfigs/default_serving_config
+      owasp:
+        cheat-sheet-protocol: "https://"
+        cheat-sheet-url: "cheatsheetseries.owasp.org/"
+        asvsUrl: "https://owasp.org/www-project-application-security-verification-standard/"
+    rag-tool:
+      similarity-threshold: 0.0
+      min-topK: 1
+      max-topK: 8
+      default-topK: 5
+  rag:
+    force-rebuild: true
+    top-k: 20
+    similarity-threshold: 0.0
+    radius: 1
+    chunk:
+      size: 100
+      min-chunk-size: 200
+      min-chunk-to-embed: 50
+      max-num-chunks: 8192
+      keep-separator: true
+    pdf:
+      mode: page #paragraph
+      path: file:/Users/Shared/rag-files/qa-over-internal-docs/*.pdf #classpath:rag/qa-over-internal-docs/*.pdf
+      pages-per-document: 1
+      left-alignment: true
+      number-of-top-text-lines-to-delete: 0
+      number-of-bottom-text-lines-to-delete: 0
+    query-expander:
+      number-of-queries: 4
+    rerank:
+      url: "https://api.cohere.com/v2/rerank"
+      api-key: ${COHERE_API_KEY}
+      model: "rerank-english-v3.0"
+      top-n: 6
+    synonyms:
+      PTO: "paid time off"
+      SSO: "single sign-on"
+      MFA: "multi-factor authentication"
+      2FA: "two-factor authentication"
+      IaC: "infrastructure as code"
+      PII: "personal data"
+      CI/CD: "continuous integration and delivery"
+      NAT: "network address translation"
+      GDPR: "data protection regulation"
+      VPN: "virtual private network"
+      SDLC: "software development lifecycle"
+      DNS: "domain name system"
+      IP: "internet protocol"
+      API: "application programming interface"
+      SDK: "software development kit"
+      UI: "user interface"
+      UX: "user experience"
+      DB: "database"
+      SQL: "structured query language"
+      NoSQL: "non-relational database"
+      OS: "operating system"
+      SSH: "secure shell"
+      HTTP: "hypertext transfer protocol"
+      HTTPS: "secure hypertext transfer protocol"
+
+spring:
+  application:
+    name: gen-ai-java-spring
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  ai:
+    chat:
+      memory:
+        repository:
+          jdbc:
+            # For local/dev, let Spring AI create the table automatically:
+            initialize-schema: always # If not exists, It creates the default table spring_ai_chat_memory with columns (conversation_id, role, content, metadata, …) for window-based memory.
+    vectorstore:
+      pgvector:
+        table-name-for-chat-memory: vector_store
+        table-name-for-rag: rag_vector_store
+        initialize-schema: true
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 1536 # 1024
+        max-document-batch-size: 10_000
+    openai:
+      api-key: ${OPENAI_API_KEY} # dummy-string # ${HUGGINGFACE_API_KEY} #
+#      base-url: http://localhost:12434/engines/llama.cpp # http://localhost:11434 # https://c36lms1cq3pw5m7e.us-east-1.aws.endpoints.huggingface.cloud # https://router.huggingface.co
+      chat:
+        options:
+          model: gpt-4o-mini  # gpt-4o # gpt-5.2 # gpt-3.5-turbo # ai/gemma3 # mistral:7b # Qwen/Qwen2.5-Coder-7B-Instruct
+          model-vision: gpt-4.1-mini
+#      embedding:
+#        options:
+#          model: ai/mxbai-embed-large
+      image:
+        options:
+          model: dall-e-3
+          n: 1
+          size: 1024x1024   # width x height
+          style: natural      # vivid | natural
+          quality: hd       # hd | standard | low
+          response-format: b64_json  # url | b64_json
+      audio:
+        transcription:
+          options:
+            model: whisper-1         # default
+            response-format: text     # text | json | verbose_json | srt | vtt
+            temperature: 0.7f
+            language: en
+        speech:
+          options:
+            model: tts-1      # default
+            response-format: MP3     # text | json | verbose_json | srt | vtt
+            speed: 1.5
+            language: en
+    vertex:
+      ai:
+        gemini:
+          project-id: project-a82217dd-7228-46da-a70
+          location: us-central1
+          chat:
+            options:
+              model: gemini-2.0-flash
+    huggingface:
+      chat:
+        api-key: ${HUGGINGFACE_API_KEY}
+        url: https://g6njgidlsy6hcszr.us-east-1.aws.endpoints.huggingface.cloud
+        options:
+          model: Qwen/Qwen2.5-Coder-7B-Instruct
+          max-new-tokens: 1024
+          temperature: 0.7
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: mistral:7b # custom-mistral-model:latest
+          max-new-tokens: 512
+          temperature: 0.7
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
+    username: postgres
+    password: postgres
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:/db/data.sql,classpath:/db/schema.sql
+
+
+logging:
+  level:
+    root: INFO
+    com.genai.java.spring: INFO
+    org.springframework.ai: INFO
+    org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor: DEBUG
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+        step: 5s
+  metrics:
+    enable:
+      all: true
+    distribution:
+      percentiles-histogram:
+        all: true
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0
+  otlp:
+    tracing:
+      endpoint: http://localhost:4317
+      transport: GRPC
