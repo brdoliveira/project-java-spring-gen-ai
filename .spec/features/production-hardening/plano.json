@@ -1,0 +1,249 @@
+{
+  "runId": "project-java-spring-gen-ai-production-hardening-msz0x146",
+  "feature": "production-hardening",
+  "agent": "codex",
+  "modo": "paralelo",
+  "paralelizar": null,
+  "modeloForcado": null,
+  "esforcoForcado": null,
+  "geradoEm": "2026-08-18 18:56",
+  "branchTrabalho": "spec/production-hardening",
+  "baseDir": ".spec/features/production-hardening",
+  "specDir": ".spec",
+  "repoName": "project-java-spring-gen-ai",
+  "logsDir": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-logs",
+  "ondas": [
+    [
+      "faixa-1",
+      "faixa-2",
+      "faixa-3"
+    ],
+    [
+      "faixa-4",
+      "faixa-5",
+      "faixa-6"
+    ],
+    [
+      "faixa-7"
+    ]
+  ],
+  "faixas": [
+    {
+      "id": "faixa-1",
+      "branch": "spec/production-hardening-faixa-1",
+      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-1",
+      "tarefas": [
+        {
+          "id": "T-001",
+          "titulo": "Preparar build reproduzível e gate de testes",
+          "modelo": "gpt-5.6-terra",
+          "esforco": "high",
+          "arquivos": [
+            "pom.xml",
+            "posture-service/pom.xml",
+            ".mvn/wrapper/maven-wrapper.properties",
+            "mvnw",
+            "mvnw.cmd",
+            "scripts/run-spec-tests.mjs",
+            "onpspec.config.json",
+            ".github/workflows/ci.yml",
+            "src/test/java/com/genai/java/spring/build/BuildContractTest.java"
+          ],
+          "refs": [
+            "US-005",
+            "AC-015",
+            "AC-016",
+            "AC-017"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-2",
+      "branch": "spec/production-hardening-faixa-2",
+      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-2",
+      "tarefas": [
+        {
+          "id": "T-002",
+          "titulo": "Tornar configuração e migrações não destrutivas",
+          "modelo": "gpt-5.6-sol",
+          "esforco": "high",
+          "arquivos": [
+            "src/main/resources/application.yml",
+            "src/main/resources/application-local.yml",
+            "src/main/resources/application-prod.yml",
+            "src/main/resources/db/data.sql",
+            "src/main/resources/db/schema.sql",
+            "src/main/resources/db/migration/V1__create_review_state_snapshot.sql",
+            "posture-service/src/main/resources/application.yml",
+            "posture-service/src/main/resources/application-local.yml",
+            "posture-service/src/main/resources/application-prod.yml",
+            "posture-service/src/main/resources/db/data.sql",
+            "posture-service/src/main/resources/db/schema.sql",
+            "posture-service/src/main/resources/db/migration/V1__create_security_posture.sql",
+            "posture-service/src/main/resources/db/local-data.sql",
+            "src/test/java/com/genai/java/spring/config/ConfigurationSafetyTest.java",
+            "src/test/java/com/genai/java/spring/config/DatabaseMigrationIT.java",
+            "posture-service/src/test/java/com/genai/posture/config/PostureMigrationIT.java"
+          ],
+          "refs": [
+            "US-001",
+            "US-002",
+            "AC-001",
+            "AC-002",
+            "AC-003",
+            "AC-004",
+            "AC-006"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-3",
+      "branch": "spec/production-hardening-faixa-3",
+      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-3",
+      "tarefas": [
+        {
+          "id": "T-003",
+          "titulo": "Proteger APIs e garantir posse/idempotência de revisão",
+          "modelo": "gpt-5.6-sol",
+          "esforco": "high",
+          "arquivos": [
+            "src/main/java/com/genai/java/spring/security/SecurityConfiguration.java",
+            "src/main/java/com/genai/java/spring/security/CurrentSubject.java",
+            "src/main/java/com/genai/java/spring/aiagent/controller/SecurityReviewController.java",
+            "src/main/java/com/genai/java/spring/aiagent/service/SecurityReviewService.java",
+            "src/main/java/com/genai/java/spring/aiagent/service/impl/SecurityReviewServiceImpl.java",
+            "src/main/java/com/genai/java/spring/aiagent/dataaccess/repository/ReviewStateRepository.java",
+            "src/main/java/com/genai/java/spring/aiagent/dataaccess/repository/impl/ReviewStateRepositoryImpl.java",
+            "src/main/java/com/genai/java/spring/aiagent/dto/ReviewState.java",
+            "src/main/java/com/genai/java/spring/aiagent/dto/ApprovalRequest.java",
+            "src/main/java/com/genai/java/spring/aiagent/dto/FollowUpRequestDto.java",
+            "src/main/resources/db/migration/V2__add_review_owner_and_version.sql",
+            "src/test/java/com/genai/java/spring/security/ApiSecurityTest.java",
+            "src/test/java/com/genai/java/spring/aiagent/SecurityReviewAuthorizationTest.java",
+            "src/test/java/com/genai/java/spring/aiagent/ApprovalIdempotencyTest.java",
+            "src/test/java/com/genai/java/spring/aiagent/SensitiveLoggingTest.java"
+          ],
+          "refs": [
+            "US-003",
+            "US-004",
+            "AC-007",
+            "AC-008",
+            "AC-009",
+            "AC-010",
+            "AC-011",
+            "AC-014"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-4",
+      "branch": "spec/production-hardening-faixa-4",
+      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-4",
+      "tarefas": [
+        {
+          "id": "T-004",
+          "titulo": "Endurecer uploads e armazenamento de imagens",
+          "modelo": "gpt-5.6-terra",
+          "esforco": "high",
+          "arquivos": [
+            "src/main/java/com/genai/java/spring/aiagent/service/impl/FileStorageServiceImpl.java",
+            "src/main/java/com/genai/java/spring/multimodality/texttoimage/GeneratedImageStorage.java",
+            "src/main/java/com/genai/java/spring/multimodality/texttoimage/MarketingAssetController.java",
+            "src/test/java/com/genai/java/spring/aiagent/FileStorageServiceTest.java",
+            "src/test/java/com/genai/java/spring/multimodality/GeneratedImageStorageTest.java"
+          ],
+          "refs": [
+            "US-003",
+            "US-004",
+            "AC-010",
+            "AC-013"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-5",
+      "branch": "spec/production-hardening-faixa-5",
+      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-5",
+      "tarefas": [
+        {
+          "id": "T-005",
+          "titulo": "Isolar providers e limitar chamadas externas",
+          "modelo": "gpt-5.6-sol",
+          "esforco": "high",
+          "arquivos": [
+            "src/main/java/com/genai/java/spring/config/AIProviderConfig.java",
+            "src/main/java/com/genai/java/spring/config/ProviderProperties.java",
+            "src/main/java/com/genai/java/spring/aiagent/tools/web/WebTools.java",
+            "src/main/java/com/genai/java/spring/aiagent/tools/posture/PostureTools.java",
+            "src/main/java/com/genai/java/spring/rag/rerank/processor/RerankPostProcessor.java",
+            "src/test/java/com/genai/java/spring/config/ProviderIsolationTest.java",
+            "src/test/java/com/genai/java/spring/aiagent/OutboundToolResilienceTest.java"
+          ],
+          "refs": [
+            "US-002",
+            "US-004",
+            "AC-005",
+            "AC-012"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-6",
+      "branch": "spec/production-hardening-faixa-6",
+      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-6",
+      "tarefas": [
+        {
+          "id": "T-006",
+          "titulo": "Criar avaliação determinística do RAG",
+          "modelo": "gpt-5.6-terra",
+          "esforco": "medium",
+          "arquivos": [
+            "src/main/java/com/genai/java/spring/rag/evaluation/RagEvaluationService.java",
+            "src/main/java/com/genai/java/spring/rag/evaluation/RagEvaluationReport.java",
+            "src/test/resources/rag/evaluation/golden-dataset.json",
+            "src/test/java/com/genai/java/spring/rag/RagProductionThresholdTest.java",
+            "src/test/java/com/genai/java/spring/rag/RagEvaluationServiceTest.java"
+          ],
+          "refs": [
+            "US-006",
+            "AC-018",
+            "AC-019"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faixa-7",
+      "branch": "spec/production-hardening-faixa-7",
+      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-7",
+      "tarefas": [
+        {
+          "id": "T-007",
+          "titulo": "Documentar execução, segurança e operação",
+          "modelo": "gpt-5.6-terra",
+          "esforco": "medium",
+          "arquivos": [
+            "README.md",
+            "gen-ai-with-java-spring.postman_collection.json",
+            "docker/dev/compose.yml",
+            "docker/dev/Dockerfile",
+            "docker/dev/posture-service.Dockerfile",
+            "src/test/java/com/genai/java/spring/docs/DocumentationContractTest.java"
+          ],
+          "refs": [
+            "US-007",
+            "AC-020"
+          ]
+        }
+      ]
+    }
+  ],
+  "sequenciais": [],
+  "concluidas": [],
+  "avisos": []
+}

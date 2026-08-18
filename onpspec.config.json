@@ -1,0 +1,33 @@
+{
+  "testCommand": "node scripts/run-spec-tests.mjs",
+  "reporter": "jest-json",
+  "reporterOutputFile": ".spec/verification/test-results.json",
+  "testGlobs": [
+    "src/test/**/*.java",
+    "posture-service/src/test/**/*.java"
+  ],
+  "srcGlobs": [
+    "pom.xml",
+    "posture-service/pom.xml",
+    "src/main/**",
+    "posture-service/src/main/**",
+    "scripts/**",
+    ".github/**",
+    "docker/dev/**",
+    "README.md",
+    "gen-ai-with-java-spring.postman_collection.json"
+  ],
+  "ignoreGlobs": [
+    ".git/**",
+    ".spec/**",
+    "target/**",
+    "posture-service/target/**"
+  ],
+  "paralelo": {
+    "maxParalelas": 3,
+    "model": "gpt-5.6-terra",
+    "esforco": "medium",
+    "sandbox": "workspace-write",
+    "resumoModel": "gpt-5.6-luna"
+  }
+}

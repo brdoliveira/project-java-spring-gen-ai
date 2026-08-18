@@ -1,0 +1,1382 @@
+{
+  "schema": 1,
+  "sinais": {
+    "ARQUIVO_INEXISTENTE::production-hardening::T-001": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "production-hardening",
+      "ref": "T-001",
+      "ocorrencias": 6,
+      "primeiraVez": "2026-08-18T18:56:02.336Z",
+      "ultimaVez": "2026-08-18T18:56:02.342Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_INEXISTENTE::production-hardening::T-002": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "production-hardening",
+      "ref": "T-002",
+      "ocorrencias": 10,
+      "primeiraVez": "2026-08-18T18:56:02.342Z",
+      "ultimaVez": "2026-08-18T18:56:02.342Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_INEXISTENTE::production-hardening::T-003": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "production-hardening",
+      "ref": "T-003",
+      "ocorrencias": 7,
+      "primeiraVez": "2026-08-18T18:56:02.342Z",
+      "ultimaVez": "2026-08-18T18:56:02.342Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_INEXISTENTE::production-hardening::T-004": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "production-hardening",
+      "ref": "T-004",
+      "ocorrencias": 3,
+      "primeiraVez": "2026-08-18T18:56:02.342Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_INEXISTENTE::production-hardening::T-005": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "production-hardening",
+      "ref": "T-005",
+      "ocorrencias": 3,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_INEXISTENTE::production-hardening::T-006": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "production-hardening",
+      "ref": "T-006",
+      "ocorrencias": 5,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_INEXISTENTE::production-hardening::T-007": {
+      "codigo": "ARQUIVO_INEXISTENTE",
+      "feature": "production-hardening",
+      "ref": "T-007",
+      "ocorrencias": 4,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-001": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-001",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-002": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-002",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-003": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-003",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-004": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-004",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-005": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-005",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-006": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-006",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-007": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-007",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-008": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-008",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-009": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-009",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-010": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-010",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-011": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-011",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-012": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-012",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-013": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-013",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-014": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-014",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-015": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-015",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-016": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-016",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-017": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-017",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-018": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-018",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-019": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-019",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "AC_SEM_TESTE::production-hardening::AC-020": {
+      "codigo": "AC_SEM_TESTE",
+      "feature": "production-hardening",
+      "ref": "AC-020",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::posture-service/src/main/java/com/genai/posture/PostureServiceApplication.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "posture-service/src/main/java/com/genai/posture/PostureServiceApplication.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::posture-service/src/main/java/com/genai/posture/controller/PostureController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "posture-service/src/main/java/com/genai/posture/controller/PostureController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::posture-service/src/main/java/com/genai/posture/dataaccess/entity/SecurityPostureEntity.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "posture-service/src/main/java/com/genai/posture/dataaccess/entity/SecurityPostureEntity.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::posture-service/src/main/java/com/genai/posture/dataaccess/entity/SecurityPostureId.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "posture-service/src/main/java/com/genai/posture/dataaccess/entity/SecurityPostureId.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::posture-service/src/main/java/com/genai/posture/dataaccess/entity/converter/MapJsonbConverter.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "posture-service/src/main/java/com/genai/posture/dataaccess/entity/converter/MapJsonbConverter.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::posture-service/src/main/java/com/genai/posture/dataaccess/repository/SecurityPostureRepository.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "posture-service/src/main/java/com/genai/posture/dataaccess/repository/SecurityPostureRepository.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::posture-service/src/main/java/com/genai/posture/service/PostureService.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "posture-service/src/main/java/com/genai/posture/service/PostureService.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::posture-service/src/main/java/com/genai/posture/service/impl/PostureServiceImpl.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "posture-service/src/main/java/com/genai/posture/service/impl/PostureServiceImpl.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::posture-service/src/main/java/com/genai/posture/tools/PostureTools.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "posture-service/src/main/java/com/genai/posture/tools/PostureTools.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::posture-service/src/main/resources/logback-spring.xml": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "posture-service/src/main/resources/logback-spring.xml",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/GenAIJavaSpringApplication.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/GenAIJavaSpringApplication.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/advisor/ContentSanitizerAdvisor.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/advisor/ContentSanitizerAdvisor.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/agent/SecurityReviewAgent.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/agent/SecurityReviewAgent.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/agent/impl/SecurityReviewAgentChainWorkflow.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/agent/impl/SecurityReviewAgentChainWorkflow.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/agent/impl/SecurityReviewAgentVision.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/agent/impl/SecurityReviewAgentVision.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/agent/records/ParsedToolResponse.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/agent/records/ParsedToolResponse.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/agent/records/Plan.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/agent/records/Plan.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/agent/records/PlanStep.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/agent/records/PlanStep.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/agent/util/ToolResponseParser.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/agent/util/ToolResponseParser.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/config/data/AIAgentConfigData.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/config/data/AIAgentConfigData.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/dataaccess/helper/ReviewStateRepositoryHelper.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/dataaccess/helper/ReviewStateRepositoryHelper.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/dto/AgentRunResult.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/dto/AgentRunResult.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/dto/ApprovalRequestData.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/dto/ApprovalRequestData.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/dto/ApprovalType.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/dto/ApprovalType.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/dto/PendingApproval.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/dto/PendingApproval.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/dto/ReviewCheckpoint.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/dto/ReviewCheckpoint.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/dto/ReviewDto.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/dto/ReviewDto.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/dto/ReviewStatus.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/dto/ReviewStatus.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/dto/StoredMessage.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/dto/StoredMessage.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/exception/SecurityReviewAgentException.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/exception/SecurityReviewAgentException.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/mapper/ReviewStateMapper.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/mapper/ReviewStateMapper.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/mcp/customtoolcallback/PostureCustomToolCallback.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/mcp/customtoolcallback/PostureCustomToolCallback.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/service/FileStorageService.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/service/FileStorageService.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/service/PromptSerializer.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/service/PromptSerializer.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/service/impl/PromptSerializerImpl.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/service/impl/PromptSerializerImpl.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/diagram/DiagramTools.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/diagram/DiagramTools.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/DataStore.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/DataStore.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/DiagramExtractResult.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/DiagramExtractResult.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/Edge.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/Edge.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/ExtractArgs.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/ExtractArgs.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/Node.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/Node.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/TrustBoundary.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/diagram/records/TrustBoundary.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/exception/ToolExecutionException.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/exception/ToolExecutionException.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/posture/records/PostureArgs.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/posture/records/PostureArgs.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/rag/RagTools.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/rag/RagTools.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/rag/records/RagArgs.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/rag/records/RagArgs.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/web/GcpTokenProvider.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/web/GcpTokenProvider.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/web/records/WebArgs.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/web/records/WebArgs.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/aiagent/tools/web/records/WebItem.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/aiagent/tools/web/records/WebItem.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/advisor/ErrorWrappingAdvisor.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/advisor/ErrorWrappingAdvisor.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/advisor/SystemPromptAdvisor.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/advisor/SystemPromptAdvisor.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/advisor/ValidationAdvisor.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/advisor/ValidationAdvisor.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/common/CommonChatController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/common/CommonChatController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/dockermodelrunner/DockerModelRunnerController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/dockermodelrunner/DockerModelRunnerController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/googlevertexai/GoogleVertexAIController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/googlevertexai/GoogleVertexAIController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/huggingface/HuggingFaceChatController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/huggingface/HuggingFaceChatController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/memory/OrderController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/memory/OrderController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/memory/OrderStatusTools.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/memory/OrderStatusTools.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/memory/dto/Order.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/memory/dto/Order.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/memory/dto/OrderStatus.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/memory/dto/OrderStatus.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/ollama/OllamaChatController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/ollama/OllamaChatController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/openai/OpenAIChatController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/openai/OpenAIChatController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/openai/OpenAIChatException.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/openai/OpenAIChatException.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/openai/OpenAIChatStructuredOutputController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/openai/OpenAIChatStructuredOutputController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/openai/OpenAIGeneralChatController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/openai/OpenAIGeneralChatController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/openai/OpenAIService.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/openai/OpenAIService.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/openai/dto/response/SummarizationResponse.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/openai/dto/response/SummarizationResponse.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/chat/openai/jailbreak/demo/BankingTools.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/chat/openai/jailbreak/demo/BankingTools.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/config/AsyncConfiguration.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/config/AsyncConfiguration.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/exception/handler/ErrorDto.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/exception/handler/ErrorDto.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/exception/handler/GlobalExceptionHandler.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/exception/handler/GlobalExceptionHandler.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/multimodality/imagetotext/ProductController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/multimodality/imagetotext/ProductController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/multimodality/speechtotext/MeetingAssistantController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/multimodality/speechtotext/MeetingAssistantController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/multimodality/texttospeech/Ticket.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/multimodality/texttospeech/Ticket.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/multimodality/texttospeech/TicketResponse.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/multimodality/texttospeech/TicketResponse.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/multimodality/texttospeech/TicketStatus.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/multimodality/texttospeech/TicketStatus.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/multimodality/texttospeech/TicketStatusController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/multimodality/texttospeech/TicketStatusController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/multimodality/texttospeech/TicketStatusTools.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/multimodality/texttospeech/TicketStatusTools.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/config/SimpleRagConfiguration.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/config/SimpleRagConfiguration.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/config/data/PgVectorStoreConfigData.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/config/data/PgVectorStoreConfigData.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/config/data/RagConfigData.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/config/data/RagConfigData.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/config/data/RagConstants.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/config/data/RagConstants.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/config/postprocessor/CitationHeaderPostProcessor.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/config/postprocessor/CitationHeaderPostProcessor.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/config/postprocessor/NeighbourStitchPostProcessor.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/config/postprocessor/NeighbourStitchPostProcessor.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/config/postprocessor/record/Target.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/config/postprocessor/record/Target.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/config/preprocessor/DomainSynonymTransformer.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/config/preprocessor/DomainSynonymTransformer.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/controller/EmployeeHandbookController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/controller/EmployeeHandbookController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/controller/InternalQAController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/controller/InternalQAController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/exception/RagException.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/exception/RagException.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/inpromptcontext/ITSupportController.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/inpromptcontext/ITSupportController.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/rerank/client/RerankerClient.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/rerank/client/RerankerClient.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/rerank/client/impl/CohereRerankerClient.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/rerank/client/impl/CohereRerankerClient.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/rerank/exception/RerankException.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/rerank/exception/RerankException.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/service/PdfWatcherService.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/service/PdfWatcherService.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/java/com/genai/java/spring/rag/service/RagIngestionService.java": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/java/com/genai/java/spring/rag/service/RagIngestionService.java",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/agent.diagram/security-review-food-ordering-system.drawio.png": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/agent.diagram/security-review-food-ordering-system.drawio.png",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/agent.diagram/security-review-food-ordering-system.png": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/agent.diagram/security-review-food-ordering-system.png",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/logback-spring.xml": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/logback-spring.xml",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/mini-employee-handbook/files/hr.md": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/mini-employee-handbook/files/hr.md",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/mini-employee-handbook/files/it.md": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/mini-employee-handbook/files/it.md",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/mini-employee-handbook/files/office.md": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/mini-employee-handbook/files/office.md",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/mini-employee-handbook/files/security.md": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/mini-employee-handbook/files/security.md",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/mini-employee-handbook/files/travel.md": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/mini-employee-handbook/files/travel.md",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/mini-employee-handbook/vector-store/vectorstore.json": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/mini-employee-handbook/vector-store/vectorstore.json",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/qa-over-internal-docs/authentication_datahandling.pdf": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/qa-over-internal-docs/authentication_datahandling.pdf",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/qa-over-internal-docs/compliance_responsibilities.pdf": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/qa-over-internal-docs/compliance_responsibilities.pdf",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/qa-over-internal-docs/policy_incidentmanagement.pdf": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/qa-over-internal-docs/policy_incidentmanagement.pdf",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/qa-over-internal-docs/scope_roles.pdf": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/qa-over-internal-docs/scope_roles.pdf",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/qa-over-internal-docs/secure_development.pdf": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/qa-over-internal-docs/secure_development.pdf",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/rag/qa-over-internal-docs/updatecycle_checklist.pdf": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/rag/qa-over-internal-docs/updatecycle_checklist.pdf",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/static/meeting-notes/meeting-notes.mp3": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/static/meeting-notes/meeting-notes.mp3",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/static/product-descriptions.txt": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/static/product-descriptions.txt",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/static/product-images/black-jacket.png": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/static/product-images/black-jacket.png",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/static/product-images/car.png": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/static/product-images/car.png",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/static/product-images/dog.png": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/static/product-images/dog.png",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/static/product-images/red-dress.jpeg": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/static/product-images/red-dress.jpeg",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/static/product-images/white-shoe.png": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/static/product-images/white-shoe.png",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/templates/prompt-chat-memory-system-prompt.st": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/templates/prompt-chat-memory-system-prompt.st",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/templates/query-expander-prompt.st": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/templates/query-expander-prompt.st",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/templates/summarize-prompt.st": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/templates/summarize-prompt.st",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "ARQUIVO_ORFAO::—::src/main/resources/templates/vector-store-memory-system-prompt.st": {
+      "codigo": "ARQUIVO_ORFAO",
+      "feature": "—",
+      "ref": "src/main/resources/templates/vector-store-memory-system-prompt.st",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "PRINCIPIO_VIOLADO::—::P-002": {
+      "codigo": "PRINCIPIO_VIOLADO",
+      "feature": "—",
+      "ref": "P-002",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "PRINCIPIO_VIOLADO::—::P-003": {
+      "codigo": "PRINCIPIO_VIOLADO",
+      "feature": "—",
+      "ref": "P-003",
+      "ocorrencias": 2,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "PRINCIPIO_VIOLADO::—::P-004": {
+      "codigo": "PRINCIPIO_VIOLADO",
+      "feature": "—",
+      "ref": "P-004",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "PRINCIPIO_VIOLADO::—::P-005": {
+      "codigo": "PRINCIPIO_VIOLADO",
+      "feature": "—",
+      "ref": "P-005",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    },
+    "PRINCIPIO_VIOLADO::—::P-006": {
+      "codigo": "PRINCIPIO_VIOLADO",
+      "feature": "—",
+      "ref": "P-006",
+      "ocorrencias": 1,
+      "primeiraVez": "2026-08-18T18:56:02.343Z",
+      "ultimaVez": "2026-08-18T18:56:02.343Z",
+      "gitRev": "7ae5f04"
+    }
+  }
+}

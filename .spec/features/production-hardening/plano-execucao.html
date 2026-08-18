@@ -1,0 +1,152 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano de execução — production-hardening</title>
+<style>
+  :root { --bg:#fafafa; --fg:#1a1a1a; --card:#fff; --borda:#e2e2e2; --sub:#666;
+          --acc:#0a7c42; --acc-fg:#fff; --aviso:#8a6d00; --aviso-bg:#fff8e1; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#141414; --fg:#eaeaea; --card:#1e1e1e; --borda:#333; --sub:#9a9a9a;
+            --acc:#17a35c; --aviso:#e0c36a; --aviso-bg:#2a2410; }
+  }
+  * { box-sizing:border-box }
+  body { margin:0; padding:2rem 1rem; background:var(--bg); color:var(--fg);
+         font:15px/1.55 system-ui,-apple-system,sans-serif }
+  main { max-width:64rem; margin:0 auto }
+  h1 { font-size:1.5rem; margin:0 0 .25rem } h3 { margin:1.5rem 0 .5rem }
+  h4 { margin:0 0 .5rem } small { color:var(--sub); font-weight:400 }
+  .sub { color:var(--sub); margin:0 0 1.25rem }
+  code { font:.85em ui-monospace,monospace; background:var(--card);
+         border:1px solid var(--borda); border-radius:4px; padding:.05em .35em; overflow-wrap:anywhere }
+  .resumo { display:flex; gap:.75rem; flex-wrap:wrap; margin:0 0 1rem }
+  .resumo div { background:var(--card); border:1px solid var(--borda); border-radius:8px;
+                padding:.5rem .9rem } .resumo b { font-size:1.2rem }
+  .executor { background:var(--card); border:1px solid var(--borda); border-radius:10px;
+              padding:1rem; margin:0 0 .5rem }
+  .executor h2 { margin:0 0 .5rem; font-size:1.05rem }
+  .nota { color:var(--sub); font-size:.85rem; margin:.5rem 0 0 }
+  #cmd { display:inline-block; margin-top:.6rem }
+  .grade { display:grid; grid-template-columns:repeat(auto-fit,minmax(17rem,1fr)); gap:.75rem }
+  .faixa { background:var(--card); border:1px solid var(--borda); border-radius:10px; padding: .9rem }
+  .tarefa { display:flex; flex-direction:column; gap:.15rem; padding:.6rem 0;
+            border-top:1px dashed var(--borda) }
+  .tarefa:first-of-type { border-top:0 }
+  .tid { font:700 .85rem ui-monospace,monospace; color:var(--acc) }
+  .meta,.arquivos { font-size:.85rem; color:var(--sub) }
+  .avisos { background:var(--aviso-bg); color:var(--aviso); border-radius:8px;
+            padding:.6rem .9rem; margin:0 0 1rem; font-size:.9rem }
+  ol li { margin:.25rem 0 }
+</style>
+<main>
+  <h1>Plano de execução — production-hardening</h1>
+  <p class="sub">gerado por <code>onp-spec plano</code> em 2026-08-18 18:56 · regenere após mudar tasks.md</p>
+  <div class="resumo">
+    <div><b>7</b> tarefa(s) em paralelo</div>
+    <div><b>7</b> faixa(s) · <b>3</b> onda(s)</div>
+    <div><b>0</b> sequencial(is)</div>
+    <div>branch <code>spec/production-hardening</code></div>
+  </div>
+  
+  <div class="executor">
+    <h2>Como executar — via agente</h2>
+    <p>Peça ao agente (Codex) para executar o plano. Ele roda:</p>
+    <div><code id="cmd">bash .spec/features/production-hardening/executar-tarefas.sh</code></div>
+    <p class="nota">Este arquivo é só visualização. Cada faixa roda <code>codex exec</code> num worktree próprio, com contexto limpo, modelo e esforço já definidos.
+    O gate final (verify + audit) roda sozinho; a execução fica em background e, a cada
+    1 minuto, o agente posta no chat a <b>tabela de andamento</b>
+    (<code>onp-spec resumo production-hardening --tabela</code>) e o
+    <b>resumo geral de andamento</b> (<code>onp-spec resumo production-hardening</code>).</p>
+  </div>
+  
+    <section class="onda">
+      <h3>Onda 1 <small>faixa-1 ∥ faixa-2 ∥ faixa-3 — em paralelo, janelas limpas</small></h3>
+      <div class="grade">
+      <div class="faixa">
+        <h4>faixa-1 <small>branch <code>spec/production-hardening-faixa-1</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-1</code></small></h4>
+        
+        <div class="tarefa">
+          <span class="tid">T-001</span>
+          <span class="ttitulo">Preparar build reproduzível e gate de testes</span>
+          <span class="meta"><code>gpt-5.6-terra</code> · esforço <b>high</b></span>
+          <span class="arquivos"><code>pom.xml</code> <code>posture-service/pom.xml</code> <code>.mvn/wrapper/maven-wrapper.properties</code> <code>mvnw</code> <code>mvnw.cmd</code> <code>scripts/run-spec-tests.mjs</code> <code>onpspec.config.json</code> <code>.github/workflows/ci.yml</code> <code>src/test/java/com/genai/java/spring/build/BuildContractTest.java</code></span>
+        </div>
+      </div>
+      <div class="faixa">
+        <h4>faixa-2 <small>branch <code>spec/production-hardening-faixa-2</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-2</code></small></h4>
+        
+        <div class="tarefa">
+          <span class="tid">T-002</span>
+          <span class="ttitulo">Tornar configuração e migrações não destrutivas</span>
+          <span class="meta"><code>gpt-5.6-sol</code> · esforço <b>high</b></span>
+          <span class="arquivos"><code>src/main/resources/application.yml</code> <code>src/main/resources/application-local.yml</code> <code>src/main/resources/application-prod.yml</code> <code>src/main/resources/db/data.sql</code> <code>src/main/resources/db/schema.sql</code> <code>src/main/resources/db/migration/V1__create_review_state_snapshot.sql</code> <code>posture-service/src/main/resources/application.yml</code> <code>posture-service/src/main/resources/application-local.yml</code> <code>posture-service/src/main/resources/application-prod.yml</code> <code>posture-service/src/main/resources/db/data.sql</code> <code>posture-service/src/main/resources/db/schema.sql</code> <code>posture-service/src/main/resources/db/migration/V1__create_security_posture.sql</code> <code>posture-service/src/main/resources/db/local-data.sql</code> <code>src/test/java/com/genai/java/spring/config/ConfigurationSafetyTest.java</code> <code>src/test/java/com/genai/java/spring/config/DatabaseMigrationIT.java</code> <code>posture-service/src/test/java/com/genai/posture/config/PostureMigrationIT.java</code></span>
+        </div>
+      </div>
+      <div class="faixa">
+        <h4>faixa-3 <small>branch <code>spec/production-hardening-faixa-3</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-3</code></small></h4>
+        
+        <div class="tarefa">
+          <span class="tid">T-003</span>
+          <span class="ttitulo">Proteger APIs e garantir posse/idempotência de revisão</span>
+          <span class="meta"><code>gpt-5.6-sol</code> · esforço <b>high</b></span>
+          <span class="arquivos"><code>src/main/java/com/genai/java/spring/security/SecurityConfiguration.java</code> <code>src/main/java/com/genai/java/spring/security/CurrentSubject.java</code> <code>src/main/java/com/genai/java/spring/aiagent/controller/SecurityReviewController.java</code> <code>src/main/java/com/genai/java/spring/aiagent/service/SecurityReviewService.java</code> <code>src/main/java/com/genai/java/spring/aiagent/service/impl/SecurityReviewServiceImpl.java</code> <code>src/main/java/com/genai/java/spring/aiagent/dataaccess/repository/ReviewStateRepository.java</code> <code>src/main/java/com/genai/java/spring/aiagent/dataaccess/repository/impl/ReviewStateRepositoryImpl.java</code> <code>src/main/java/com/genai/java/spring/aiagent/dto/ReviewState.java</code> <code>src/main/java/com/genai/java/spring/aiagent/dto/ApprovalRequest.java</code> <code>src/main/java/com/genai/java/spring/aiagent/dto/FollowUpRequestDto.java</code> <code>src/main/resources/db/migration/V2__add_review_owner_and_version.sql</code> <code>src/test/java/com/genai/java/spring/security/ApiSecurityTest.java</code> <code>src/test/java/com/genai/java/spring/aiagent/SecurityReviewAuthorizationTest.java</code> <code>src/test/java/com/genai/java/spring/aiagent/ApprovalIdempotencyTest.java</code> <code>src/test/java/com/genai/java/spring/aiagent/SensitiveLoggingTest.java</code></span>
+        </div>
+      </div></div>
+    </section>
+    <section class="onda">
+      <h3>Onda 2 <small>faixa-4 ∥ faixa-5 ∥ faixa-6 — em paralelo, janelas limpas</small></h3>
+      <div class="grade">
+      <div class="faixa">
+        <h4>faixa-4 <small>branch <code>spec/production-hardening-faixa-4</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-4</code></small></h4>
+        
+        <div class="tarefa">
+          <span class="tid">T-004</span>
+          <span class="ttitulo">Endurecer uploads e armazenamento de imagens</span>
+          <span class="meta"><code>gpt-5.6-terra</code> · esforço <b>high</b></span>
+          <span class="arquivos"><code>src/main/java/com/genai/java/spring/aiagent/service/impl/FileStorageServiceImpl.java</code> <code>src/main/java/com/genai/java/spring/multimodality/texttoimage/GeneratedImageStorage.java</code> <code>src/main/java/com/genai/java/spring/multimodality/texttoimage/MarketingAssetController.java</code> <code>src/test/java/com/genai/java/spring/aiagent/FileStorageServiceTest.java</code> <code>src/test/java/com/genai/java/spring/multimodality/GeneratedImageStorageTest.java</code></span>
+        </div>
+      </div>
+      <div class="faixa">
+        <h4>faixa-5 <small>branch <code>spec/production-hardening-faixa-5</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-5</code></small></h4>
+        
+        <div class="tarefa">
+          <span class="tid">T-005</span>
+          <span class="ttitulo">Isolar providers e limitar chamadas externas</span>
+          <span class="meta"><code>gpt-5.6-sol</code> · esforço <b>high</b></span>
+          <span class="arquivos"><code>src/main/java/com/genai/java/spring/config/AIProviderConfig.java</code> <code>src/main/java/com/genai/java/spring/config/ProviderProperties.java</code> <code>src/main/java/com/genai/java/spring/aiagent/tools/web/WebTools.java</code> <code>src/main/java/com/genai/java/spring/aiagent/tools/posture/PostureTools.java</code> <code>src/main/java/com/genai/java/spring/rag/rerank/processor/RerankPostProcessor.java</code> <code>src/test/java/com/genai/java/spring/config/ProviderIsolationTest.java</code> <code>src/test/java/com/genai/java/spring/aiagent/OutboundToolResilienceTest.java</code></span>
+        </div>
+      </div>
+      <div class="faixa">
+        <h4>faixa-6 <small>branch <code>spec/production-hardening-faixa-6</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-6</code></small></h4>
+        
+        <div class="tarefa">
+          <span class="tid">T-006</span>
+          <span class="ttitulo">Criar avaliação determinística do RAG</span>
+          <span class="meta"><code>gpt-5.6-terra</code> · esforço <b>medium</b></span>
+          <span class="arquivos"><code>src/main/java/com/genai/java/spring/rag/evaluation/RagEvaluationService.java</code> <code>src/main/java/com/genai/java/spring/rag/evaluation/RagEvaluationReport.java</code> <code>src/test/resources/rag/evaluation/golden-dataset.json</code> <code>src/test/java/com/genai/java/spring/rag/RagProductionThresholdTest.java</code> <code>src/test/java/com/genai/java/spring/rag/RagEvaluationServiceTest.java</code></span>
+        </div>
+      </div></div>
+    </section>
+    <section class="onda">
+      <h3>Onda 3 <small>faixa-7 — em paralelo, janelas limpas</small></h3>
+      <div class="grade">
+      <div class="faixa">
+        <h4>faixa-7 <small>branch <code>spec/production-hardening-faixa-7</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-7</code></small></h4>
+        
+        <div class="tarefa">
+          <span class="tid">T-007</span>
+          <span class="ttitulo">Documentar execução, segurança e operação</span>
+          <span class="meta"><code>gpt-5.6-terra</code> · esforço <b>medium</b></span>
+          <span class="arquivos"><code>README.md</code> <code>gen-ai-with-java-spring.postman_collection.json</code> <code>docker/dev/compose.yml</code> <code>docker/dev/Dockerfile</code> <code>docker/dev/posture-service.Dockerfile</code> <code>src/test/java/com/genai/java/spring/docs/DocumentationContractTest.java</code></span>
+        </div>
+      </div></div>
+    </section>
+  
+  <section class="onda">
+    <h3>Branches e commits</h3>
+    <ol>
+      <li>tudo parte da branch de trabalho <code>spec/production-hardening</code></li>
+      <li>1 faixa = 1 branch + 1 worktree; 1 tarefa = 1 commit <code>T-xxx production-hardening: título</code></li>
+      <li>merge <code>--no-ff</code> por faixa, na ordem; conflito interrompe e pede você</li>
+      <li>gate final: <code>onp-spec verify production-hardening</code> + <code>onp-spec audit --ci</code> — exit 0 ou não está pronto</li>
+    </ol>
+  </section>
+</main>
