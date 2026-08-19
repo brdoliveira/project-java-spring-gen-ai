@@ -28,6 +28,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.Executor;
 
@@ -58,13 +59,14 @@ public class SecurityReviewServiceImpl implements SecurityReviewService {
     }
 
     @Override
-    public String enqueueAndExecute(MultipartFile diagram) {
+    public String enqueueAndExecute(MultipartFile diagram, String subject) {
         String reviewId = UUID.randomUUID().toString();
         String fileName = fileStorageService.save(diagram);
         var state = ReviewState.builder()
                 .id(reviewId)
                 .status(ReviewStatus.QUEUED)
                 .fileName(fileName)
+                .ownerSubject(subject)
                 .build();
         reviewStateRepositoryHelper.saveReviewState(state);
         log.info("Enqueued security review id={} for file={}. Triggering agent!", reviewId, fileName);
@@ -81,16 +83,13 @@ public class SecurityReviewServiceImpl implements SecurityReviewService {
     }
 
     @Override
-    public ReviewDto getSecurityReview(String id) {
-        var reviewState = reviewStateRepositoryHelper.loadReviewState(id);
-        if (reviewState == null) {
-            throw new ResponseStatusException(NOT_FOUND);
-        }
-        return reviewStateMapper.toDto(reviewState);
+    public ReviewDto getSecurityReview(String id, String subject) {
+        return reviewStateMapper.toDto(loadOwnedState(id, subject));
     }
 
     @Override
-    public String followUpWithVision(String id, String question) {
+    public String followUpWithVision(String id, String question, String subject) {
+        loadOwnedState(id, subject);
         return securityReviewAgent.followUp(id, question);
     }
 
@@ -99,11 +98,8 @@ public class SecurityReviewServiceImpl implements SecurityReviewService {
      * Records the approval decision, applies edits if approved, and resumes execution
      */
     @Override
-    public void approveWithEdits(String id, ApprovalRequest approvalRequest, ApprovalType approvalType) {
-        ReviewState state = reviewStateRepositoryHelper.loadReviewState(id);
-        if (state == null) {
-            throw new ResponseStatusException(NOT_FOUND, "Review not found");
-        }
+    public void approveWithEdits(String id, ApprovalRequest approvalRequest, ApprovalType approvalType, String subject) {
+        ReviewState state = loadOwnedState(id, subject);
 
         checkStatusForApprovalOrRejection(approvalType, state);
 
@@ -126,11 +122,12 @@ public class SecurityReviewServiceImpl implements SecurityReviewService {
         state.archivePromptSnapshot(state.getCheckpoint().name());
 
         state.clearPendingApproval();
+        state.updateStatus(ReviewStatus.RUNNING);
         reviewStateRepositoryHelper.saveReviewState(state);
 
         // Resume execution from next checkpoint
         log.info("Approval granted for reviewId={}, resuming execution", id);
-        executeExisting(id);
+        executeExisting(id, subject);
     }
 
     private ReviewState runAgent(ReviewState state) {
@@ -233,13 +230,22 @@ public class SecurityReviewServiceImpl implements SecurityReviewService {
         }
     }
 
-    private void executeExisting(String id) {
-        ReviewState state = reviewStateRepositoryHelper.loadReviewState(id);
+    private void executeExisting(String id, String subject) {
+        ReviewState state = loadOwnedState(id, subject);
         if (state != null) {
             executor.execute(() -> runAgent(state));
-        } else {
-            log.warn("ReviewState not found for id: {}", id);
         }
+    }
+
+    private ReviewState loadOwnedState(String id, String subject) {
+        ReviewState state = reviewStateRepositoryHelper.loadReviewState(id);
+        if (state == null) {
+            throw new ResponseStatusException(NOT_FOUND, "Review not found");
+        }
+        if (!Objects.equals(state.getOwnerSubject(), subject)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Review belongs to another subject");
+        }
+        return state;
     }
 
 }

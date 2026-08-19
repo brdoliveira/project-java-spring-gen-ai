@@ -6,6 +6,9 @@ import com.genai.java.spring.aiagent.dto.ReviewState;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
+
+import static org.springframework.http.HttpStatus.CONFLICT;
 
 @Slf4j
 @Component
@@ -26,6 +29,8 @@ public class ReviewStateRepositoryHelper {
             if (updated > 0) {
                 log.info("Saved ReviewState id={} status={} checkpoint={}",
                         state.getId(), state.getStatus(), state.getCheckpoint());
+            } else {
+                throw new ResponseStatusException(CONFLICT, "Review state changed concurrently");
             }
         } catch (JsonProcessingException e) {
             log.error("Failed to save ReviewState id={}: {}", state.getId(), e.getMessage(), e);

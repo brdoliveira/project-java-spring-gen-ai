@@ -42,8 +42,10 @@ public class ReviewStateRepositoryImpl implements ReviewStateRepository {
         String approvalHistoryJson = state.getApprovalHistory() != null ?
                 objectMapper.writeValueAsString(state.getApprovalHistory()) : null;
 
-        return jdbcTemplate.update(REVIEW_STATE_SNAPSHOT_UPSERT_SQL,
+        int updated = jdbcTemplate.update(REVIEW_STATE_SNAPSHOT_UPSERT_SQL,
                 state.getId(),
+                state.getOwnerSubject(),
+                state.getVersion(),
                 state.getStatus().name(),
                 state.getCheckpoint() != null ? state.getCheckpoint().name() : null,
                 state.getFileName(),
@@ -56,6 +58,10 @@ public class ReviewStateRepositoryImpl implements ReviewStateRepository {
                 approvalHistoryJson,
                 java.sql.Timestamp.from(state.getCreatedAt()), // Convert Instant to java.sql.Timestamp for PostgreSQL
                 java.sql.Timestamp.from(state.getUpdatedAt()));
+        if (updated > 0) {
+            state.setVersion(state.getVersion() == null ? 0L : state.getVersion() + 1);
+        }
+        return updated;
     }
 
     @Override
@@ -65,6 +71,8 @@ public class ReviewStateRepositoryImpl implements ReviewStateRepository {
                     (rs, rowNum) -> {
                         ReviewState state = new ReviewState();
                         state.setId(rs.getString("id"));
+                        state.setOwnerSubject(rs.getString("owner_subject"));
+                        state.setVersion(rs.getLong("version"));
                         state.setStatus(ReviewStatus.valueOf(rs.getString("status")));
 
                         String checkpointStr = rs.getString("checkpoint");

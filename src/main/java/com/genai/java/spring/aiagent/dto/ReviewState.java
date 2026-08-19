@@ -19,6 +19,8 @@ import java.util.Objects;
 @NoArgsConstructor
 public class ReviewState {
     private String id;
+    private String ownerSubject;
+    private Long version;
     @Builder.Default
     private ReviewStatus status = ReviewStatus.QUEUED;
 
