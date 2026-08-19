@@ -1,0 +1,15 @@
+{
+  "minimumRecallAtK": 0.75,
+  "cases": [
+    {
+      "question": "Where is the vacation policy?",
+      "expectedAnswer": "The employee handbook defines the vacation policy.",
+      "expectedSources": ["employee-handbook.pdf"]
+    },
+    {
+      "question": "Where is the incident response process?",
+      "expectedAnswer": "The security runbook defines the incident response process.",
+      "expectedSources": ["security-runbook.pdf"]
+    }
+  ]
+}
