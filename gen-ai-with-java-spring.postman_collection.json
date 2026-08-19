@@ -6,6 +6,23 @@
     "_exporter_id": "3683237",
     "_collection_link": "https://go.postman.co/collection/3683237-086a52fc-101b-46f9-84f3-b4065013a4e2?source=collection_link"
   },
+  "variable": [
+    {
+      "key": "accessToken",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{accessToken}}",
+        "type": "string"
+      }
+    ]
+  },
   "item": [
     {
       "name": "section-2",

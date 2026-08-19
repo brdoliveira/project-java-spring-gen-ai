@@ -1,94 +1,97 @@
 # gen-ai-java-spring
 
-Code repository for "Complete GenAI with Java & Spring AI: LLMs, RAG, AI Agents" Udemy course,
-demonstrating Gen AI features with Java and Spring Boot.
-It contains a main Spring Boot application (GenAIJavaSpringApplication) and a `posture-service` Spring Boot application used by the main app.
-The project also includes Docker assets for observability (Prometheus, Grafana, Loki, Jaeger, Tempo) and local Postgres support for vector stores.
+Exemplos de GenAI com Java 25, Spring Boot e Spring AI. O repositório contém a aplicação principal na porta `8081` e o `posture-service` na porta `8082`.
 
-This README briefly explains the repository structure and shows how to:
-- run the observability Docker Compose
-- run the two Spring Boot applications in IntelliJ
+## Requisitos
 
-Repository layout (high level)
-- `src/` - main Java Spring Boot application (main app)
-  - main class: `com.genai.java.spring.GenAIJavaSpringApplication`
-  - default server port: 8081 (configured in `src/main/resources/application.yml`)
-- `posture-service/` - separate Spring Boot application
-  - main class: `com.genai.posture.PostureServiceApplication`
-  - intended to run on port 8082 (used by the main app via configuration)
-- `docker/observability/observability-compose.yml` - Docker Compose for observability stack
-- `docker/postgres/pgvector.yml` - Docker Compose for Postgres with init script
+- JDK 25;
+- Docker Engine com Docker Compose v2, para PostgreSQL com pgvector e a execução em containers;
+- uma chave do provider que será usado (por exemplo, `OPENAI_API_KEY`) para chamar endpoints de IA. A suíte de testes não precisa de chaves nem faz chamadas pagas.
 
-Prerequisites
-- Docker Engine and Docker Compose v2 (docker compose) installed and running
-- Java 25 (project uses `java.version` = 25 in the root `pom.xml`) and a compatible JDK installed
-- Maven (optional if running from IntelliJ) or IntelliJ IDEA with Maven support
+O Maven Wrapper está versionado: não é necessário instalar Maven globalmente. No Windows, troque `./mvnw` por `./mvnw.cmd` nos comandos abaixo.
 
-1) Run the observability Docker Compose
+## Verificação do clone
 
-The repository includes an observability compose file at `docker/observability/observability-compose.yml` which brings up Prometheus, Grafana, Loki, Jaeger, Tempo, and related provisioning.
-
-From the repository root run (macOS / zsh):
+Na raiz do repositório, compile e teste os dois serviços com o Maven Wrapper:
 
 ```bash
-# Start the observability stack in detached mode
-docker compose -f docker/observability/observability-compose.yml up -d
-
-# Tail logs (optional)
-docker compose -f docker/observability/observability-compose.yml logs -f
-
-# Stop and remove the stack
-docker compose -f docker/observability/observability-compose.yml down
+./mvnw -B -ntp test
+./mvnw -B -ntp -f posture-service/pom.xml test
+node scripts/run-spec-tests.mjs
 ```
 
-Notes:
-- Grafana dashboards and datasources are pre-provisioned under `docker/observability/grafana/`.
-- The stack expects services to export Prometheus metrics and traces to the usual ports (Prometheus, OTLP endpoint, etc.). See `src/main/resources/application.yml` for the app's OTLP endpoint and Prometheus settings.
+O último comando verifica os contratos versionados da feature. A CI executa a mesma suíte com `OFFLINE_EVALUATION=true`; não adicione chaves de providers à CI.
 
-2) Postgres for local development
+## Ambiente local
 
-There is a `docker/postgres` folder with `init.sql` and `pgvector.yml`. This repo's default datasource in `application.yml` points at `jdbc:postgresql://localhost:5433/postgres`. To run Postgres locally in Docker, run the pgvector.yml file that maps port 5433 and initialises pgvector.
+O profile `local` é explícito e permite os endpoints de demonstração sem JWT. Ele usa PostgreSQL em `localhost:5433` por padrão e não recria o índice RAG, a menos que `RAG_FORCE_REBUILD=true` seja definido intencionalmente.
 
-3) Run the applications in IntelliJ
+Suba banco, aplicação principal e posture-service em containers:
 
-Open the project
-- File -> Open... -> select the project root (this repository). IntelliJ will detect the Maven project and import dependencies.
+```bash
+docker compose -f docker/dev/compose.yml up --build
+```
 
-Create / run Run Configurations (two ways: use 'Run' gutter next to the main method, or create explicit run configurations):
+Ou inicie os serviços no host, depois de subir apenas o banco (`docker compose -f docker/dev/compose.yml up -d postgres`):
 
-A) Using the Run gutter (quick)
-- Open `src/main/java/com/genai/java/spring/GenAIJavaSpringApplication.java` and click the green Run icon next to the `main` method.
-- Open `posture-service/src/main/java/com/genai/posture/PostureServiceApplication.java` and click the green Run icon next to its `main` method.
+```bash
+export SPRING_PROFILES_ACTIVE=local
+export OPENAI_API_KEY=coloque-sua-chave-aqui
+./mvnw spring-boot:run
 
-B) Creating explicit Spring Boot run configurations (recommended for controlling VM args / env vars)
-1. Run -> Edit Configurations...
-2. Click the + and choose 'Spring Boot' (or 'Application' if Spring Boot option not available)
-3. For the main app configuration:
-   - Name: GenAIJavaSpringApplication
-   - Main class: `com.genai.java.spring.GenAIJavaSpringApplication`
-   - Module: select the main `gen-ai-java-spring` module
-   - Working directory: project root
-   - Environment variables: set any required secrets (e.g. OPENAI_API_KEY, HUGGINGFACE_API_KEY, COHERE_API_KEY) or configure them in your shell/IDE run environment
-4. For the posture service configuration:
-   - Name: PostureServiceApplication
-   - Main class: `com.genai.posture.PostureServiceApplication`
-   - Module: select the `posture-service` module
-   - Working directory: `posture-service`
-   - Environment variables: none required by default
+# Em outro terminal
+export SPRING_PROFILES_ACTIVE=local
+./mvnw -f posture-service/pom.xml spring-boot:run
+```
 
-Ports and wiring
-- Main app: default port 8081 (see `src/main/resources/application.yml`).
-- Posture service: expected by the main app at `http://localhost:8082` (configured in the main app's `application.yml` under `app.agent.posture-tool.url`). If you run the posture service on a different port, update the main app's configuration.
+No PowerShell, use `$env:SPRING_PROFILES_ACTIVE='local'` e `$env:OPENAI_API_KEY='...'`. Confirme o estado dos serviços em `http://localhost:8081/actuator/health` e `http://localhost:8082/actuator/health`.
 
-Environment and secrets
-- This project references API keys via environment variables in `application.yml` (for example OPENAI_API_KEY, HUGGINGFACE_API_KEY, COHERE_API_KEY). Configure these either in your IDE run configuration environment variables or export them in your shell before launching IntelliJ (or use a local secrets file if you prefer).
+Para encerrar o ambiente Docker mantendo o volume de dados:
 
-Quick tips
-- If you rely on a local Postgres, make sure it's running on the correct port and that the credentials in `application.yml` match.
-- If you only want to run the Java apps without the observability stack, you can skip the Docker Compose step.
-- If you change application ports, update `app.agent.posture-tool.url` in the main app's config to point to the posture service.
+```bash
+docker compose -f docker/dev/compose.yml down
+```
 
-Troubleshooting
-- Maven/IDE import errors: reimport the Maven project in IntelliJ (right-click the pom.xml or use the Maven tool window -> Reimport All).
-- Port conflicts: check with `lsof -i :8081` / `lsof -i :8082` and stop conflicting processes.
-- Database schema: the main app's vectorstore/datasource configuration may attempt to initialize schemas; delete or reset the DB if needed when testing schema initialization.
+Use `docker compose -f docker/dev/compose.yml down -v` somente quando quiser remover deliberadamente os dados locais.
+
+## Produção e segurança
+
+Produção deve ativar o profile `prod` e fornecer segredos exclusivamente pelo ambiente ou pelo gerenciador de segredos da plataforma. Os valores mínimos são:
+
+```bash
+SPRING_PROFILES_ACTIVE=prod
+DB_URL=jdbc:postgresql://db.example.internal:5432/genai
+DB_USERNAME=genai
+DB_PASSWORD=<segredo>
+OPENAI_API_KEY=<segredo-do-provider-escolhido>
+POSTURE_SERVICE_URL=http://posture-service:8082/api/posture/{id}
+OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI=https://issuer.example.com/
+```
+
+Não versione valores reais para `DB_PASSWORD`, chaves de IA ou emissor JWT. No profile `prod`, chamadas de negócio exigem um bearer token JWT e o health check permanece público. Envie o token pelo cabeçalho `Authorization`:
+
+```http
+Authorization: Bearer <access-token>
+```
+
+A coleção [Postman](gen-ai-with-java-spring.postman_collection.json) usa a variável `accessToken`; importe-a, defina-a com um JWT de teste e execute as requisições contra a URL desejada. Deixe o token vazio apenas para testar o profile `local`.
+
+O profile `prod` não inicializa schemas de forma implícita, mantém Flyway com `clean-disabled`, não inclui prompts/completions nas observações e usa amostragem de tracing inferior a 100%. Faça backup do banco e valide as migrações antes de alterar o ambiente.
+
+## Avaliação RAG offline
+
+O dataset dourado está em `src/test/resources/rag/evaluation/golden-dataset.json`. A avaliação de retrieval é determinística, offline e falha quando a métrica mínima não é atingida:
+
+```bash
+./mvnw -Dtest=RagEvaluationServiceTest,RagProductionThresholdTest test
+```
+
+Ela não avalia respostas com um LLM pago. Qualquer avaliação com provider externo deve ser acionada separadamente, com credenciais fornecidas no ambiente e nunca na CI padrão.
+
+## Operação
+
+- Métricas e health são expostos pelo Actuator; mantenha apenas os endpoints necessários acessíveis na borda.
+- As migrações Flyway são idempotentes; não use operações destrutivas para recuperar um ambiente.
+- Os uploads ficam em `APP_UPLOAD_DIR` (por padrão, diretório temporário). Em produção, forneça armazenamento persistente e permissões restritas.
+- Para observabilidade local adicional, use `docker/observability/observability-compose.yml`.
