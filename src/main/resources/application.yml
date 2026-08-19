@@ -1,12 +1,12 @@
 server:
-  port: 8081
+  port: ${SERVER_PORT:8081}
 
 app:
   ai:
     provider: openai # or openai
   agent:
     use-chain-workflow: false
-    upload-dir: /Users/Shared/agent-files/uploads
+    upload-dir: ${APP_UPLOAD_DIR:${java.io.tmpdir}/gen-ai-java-spring/uploads}
     diagram-tool:
       temperature: 0.2
     posture-tool:
@@ -27,7 +27,7 @@ app:
       max-topK: 8
       default-topK: 5
   rag:
-    force-rebuild: true
+    force-rebuild: false
     top-k: 20
     similarity-threshold: 0.0
     radius: 1
@@ -39,7 +39,7 @@ app:
       keep-separator: true
     pdf:
       mode: page #paragraph
-      path: file:/Users/Shared/rag-files/qa-over-internal-docs/*.pdf #classpath:rag/qa-over-internal-docs/*.pdf
+      path: classpath:rag/qa-over-internal-docs/*.pdf
       pages-per-document: 1
       left-alignment: true
       number-of-top-text-lines-to-delete: 0
@@ -48,7 +48,7 @@ app:
       number-of-queries: 4
     rerank:
       url: "https://api.cohere.com/v2/rerank"
-      api-key: ${COHERE_API_KEY}
+      api-key: ${COHERE_API_KEY:}
       model: "rerank-english-v3.0"
       top-n: 6
     synonyms:
@@ -101,8 +101,7 @@ spring:
         dimensions: 1536 # 1024
         max-document-batch-size: 10_000
     openai:
-      api-key: ${OPENAI_API_KEY} # dummy-string # ${HUGGINGFACE_API_KEY} #
-#      base-url: http://localhost:12434/engines/llama.cpp # http://localhost:11434 # https://c36lms1cq3pw5m7e.us-east-1.aws.endpoints.huggingface.cloud # https://router.huggingface.co
+      api-key: ${OPENAI_API_KEY:}
       chat:
         options:
           model: gpt-4o-mini  # gpt-4o # gpt-5.2 # gpt-3.5-turbo # ai/gemma3 # mistral:7b # Qwen/Qwen2.5-Coder-7B-Instruct
@@ -134,15 +133,15 @@ spring:
     vertex:
       ai:
         gemini:
-          project-id: project-a82217dd-7228-46da-a70
+          project-id: ${GCP_PROJECT:}
           location: us-central1
           chat:
             options:
               model: gemini-2.0-flash
     huggingface:
       chat:
-        api-key: ${HUGGINGFACE_API_KEY}
-        url: https://g6njgidlsy6hcszr.us-east-1.aws.endpoints.huggingface.cloud
+        api-key: ${HUGGINGFACE_API_KEY:}
+        url: ${HUGGINGFACE_URL:https://router.huggingface.co}
         options:
           model: Qwen/Qwen2.5-Coder-7B-Instruct
           max-new-tokens: 1024
@@ -155,13 +154,19 @@ spring:
           max-new-tokens: 512
           temperature: 0.7
   datasource:
-    url: jdbc:postgresql://localhost:5433/postgres?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
-    username: postgres
-    password: postgres
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/postgres?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:}
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 0
+    clean-disabled: true
+    locations: classpath:db/migration
+    validate-on-migrate: true
   sql:
     init:
-      mode: always
-      data-locations: classpath:/db/data.sql,classpath:/db/schema.sql
+      mode: never
 
 
 logging:
@@ -169,7 +174,7 @@ logging:
     root: INFO
     com.genai.java.spring: INFO
     org.springframework.ai: INFO
-    org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor: DEBUG
+    org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor: INFO
 
 
 management:
@@ -191,8 +196,8 @@ management:
   tracing:
     enabled: true
     sampling:
-      probability: 1.0
+      probability: 0.1
   otlp:
     tracing:
-      endpoint: http://localhost:4317
+      endpoint: ${OTEL_EXPORTER_OTLP_ENDPOINT:http://localhost:4317}
       transport: GRPC

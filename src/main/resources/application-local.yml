@@ -1,0 +1,30 @@
+app:
+  agent:
+    upload-dir: ${APP_UPLOAD_DIR:${java.io.tmpdir}/gen-ai-java-spring/uploads}
+  rag:
+    force-rebuild: ${RAG_FORCE_REBUILD:false}
+    pdf:
+      path: ${RAG_PDF_PATH:classpath:rag/qa-over-internal-docs/*.pdf}
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/postgres?currentSchema=public&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:}
+  ai:
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 0
+    clean-disabled: true
+  sql:
+    init:
+      mode: never

@@ -1,1 +1,1 @@
-TRUNCATE TABLE spring_ai_chat_memory;
+-- Intentionally empty. Persistent records are never reset during application startup.

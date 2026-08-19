@@ -1,0 +1,67 @@
+server:
+  port: ${SERVER_PORT:8081}
+
+app:
+  agent:
+    upload-dir: ${APP_UPLOAD_DIR:${java.io.tmpdir}/gen-ai-java-spring/uploads}
+    posture-tool:
+      url: ${POSTURE_SERVICE_URL:http://posture-service:8082/api/posture/{id}}
+      env: prod
+  rag:
+    force-rebuild: false
+    pdf:
+      path: ${RAG_PDF_PATH:classpath:rag/qa-over-internal-docs/*.pdf}
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${JWT_ISSUER_URI}
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  ai:
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: never
+      observations:
+        include-prompt: false
+        include-completion: false
+    image:
+      observations:
+        include-prompt: false
+    vectorstore:
+      pgvector:
+        initialize-schema: false
+        observations:
+          include-query-response: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 0
+    clean-disabled: true
+    validate-on-migrate: true
+  sql:
+    init:
+      mode: never
+
+logging:
+  level:
+    root: INFO
+    com.genai.java.spring: INFO
+    org.springframework.ai: INFO
+    org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor: "OFF"
+
+management:
+  tracing:
+    enabled: true
+    sampling:
+      probability: 0.1
+  otlp:
+    tracing:
+      endpoint: ${OTEL_EXPORTER_OTLP_ENDPOINT:http://otel-collector:4317}
+      transport: GRPC
