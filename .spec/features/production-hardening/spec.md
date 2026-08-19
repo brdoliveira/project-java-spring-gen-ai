@@ -1,7 +1,7 @@
 # Spec: Endurecimento para produção
 
 > feature: production-hardening
-> status: em-implementacao
+> status: auditada
 
 ## Contexto
 

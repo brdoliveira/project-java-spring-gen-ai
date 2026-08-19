@@ -1,0 +1,125 @@
+{
+  "feature": "production-hardening",
+  "timestamp": "2026-08-19T00:11:29.554Z",
+  "gitRev": "d2728f4",
+  "command": "node scripts/run-spec-tests.mjs",
+  "reporter": "jest-json",
+  "exitCode": 0,
+  "testsParsed": 23,
+  "results": {
+    "AC-001": {
+      "status": "pass",
+      "testName": "@spec:AC-001 Startup scripts do not execute destructive SQL",
+      "method": "jest-json"
+    },
+    "AC-002": {
+      "status": "pass",
+      "testName": "@spec:AC-002 RAG reindexing is opt-in by default and in production",
+      "method": "jest-json"
+    },
+    "AC-003": {
+      "status": "pass",
+      "testName": "@spec:AC-003 Main database migrations preserve existing records",
+      "method": "jest-json"
+    },
+    "AC-004": {
+      "status": "pass",
+      "testName": "@spec:AC-004 Defaults do not depend on a specific machine",
+      "method": "jest-json"
+    },
+    "AC-005": {
+      "status": "pass",
+      "testName": "@spec:AC-005 Optional providers do not prevent local startup",
+      "method": "jest-json"
+    },
+    "AC-006": {
+      "status": "pass",
+      "testName": "@spec:AC-006 Production uses safe observability defaults",
+      "method": "jest-json"
+    },
+    "AC-007": {
+      "status": "pass",
+      "testName": "@spec:AC-007 @principle:P-004 Production API requires JWT while health remains public",
+      "method": "jest-json"
+    },
+    "AC-008": {
+      "status": "pass",
+      "testName": "@spec:AC-008 A review can only be read, queried or approved by its JWT subject",
+      "method": "jest-json"
+    },
+    "AC-009": {
+      "status": "pass",
+      "testName": "@spec:AC-009 Explicit local profile permits the study endpoints without JWT",
+      "method": "jest-json"
+    },
+    "AC-010": {
+      "status": "pass",
+      "testName": "@spec:AC-010 Payload e upload inválidos são rejeitados sem persistir arquivos",
+      "method": "jest-json"
+    },
+    "AC-011": {
+      "status": "pass",
+      "testName": "@spec:AC-011 @principle:P-005 Questions and approval notes are not written to application logs",
+      "method": "jest-json"
+    },
+    "AC-012": {
+      "status": "pass",
+      "testName": "@spec:AC-012 External calls have a timeout, limited retries and sanitized errors",
+      "method": "jest-json"
+    },
+    "AC-013": {
+      "status": "pass",
+      "testName": "@spec:AC-013 Imagens concorrentes recebem arquivos distintos sem sobrescrita",
+      "method": "jest-json"
+    },
+    "AC-014": {
+      "status": "pass",
+      "testName": "@spec:AC-014 Repeated approval schedules exactly one agent continuation",
+      "method": "jest-json"
+    },
+    "AC-015": {
+      "status": "pass",
+      "testName": "@spec:AC-015 Maven Wrapper validates both services",
+      "method": "jest-json"
+    },
+    "AC-016": {
+      "status": "pass",
+      "testName": "@spec:AC-016 Test dependencies do not ship to production",
+      "method": "jest-json"
+    },
+    "AC-017": {
+      "status": "pass",
+      "testName": "@spec:AC-017 @principle:P-006 CI does not consume paid APIs",
+      "method": "jest-json"
+    },
+    "AC-018": {
+      "status": "pass",
+      "testName": "@spec:AC-018 Production filters irrelevant context below a positive threshold",
+      "method": "jest-json"
+    },
+    "AC-019": {
+      "status": "pass",
+      "testName": "@spec:AC-019 Golden dataset produces deterministic retrieval metrics",
+      "method": "jest-json"
+    },
+    "AC-020": {
+      "status": "pass",
+      "testName": "@spec:AC-020 README documents the complete execution, security, and operations path",
+      "method": "jest-json"
+    }
+  },
+  "principles": {
+    "P-005": {
+      "status": "pass",
+      "testName": "@spec:AC-011 @principle:P-005 Questions and approval notes are not written to application logs"
+    },
+    "P-006": {
+      "status": "pass",
+      "testName": "@spec:AC-017 @principle:P-006 CI does not consume paid APIs"
+    },
+    "P-004": {
+      "status": "pass",
+      "testName": "@spec:AC-007 @principle:P-004 Production API requires JWT while health remains public"
+    }
+  }
+}

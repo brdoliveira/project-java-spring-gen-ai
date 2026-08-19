@@ -1,12 +1,18 @@
 {
-  "runId": "project-java-spring-gen-ai-production-hardening-msz0x146",
+  "runId": "project-java-spring-gen-ai-production-hardening-msz1b979",
   "feature": "production-hardening",
   "agent": "codex",
   "modo": "paralelo",
-  "paralelizar": null,
+  "paralelizar": [
+    "T-002",
+    "T-003",
+    "T-004",
+    "T-005",
+    "T-006"
+  ],
   "modeloForcado": null,
   "esforcoForcado": null,
-  "geradoEm": "2026-08-18 18:56",
+  "geradoEm": "2026-08-18 19:07",
   "branchTrabalho": "spec/production-hardening",
   "baseDir": ".spec/features/production-hardening",
   "specDir": ".spec",
@@ -20,11 +26,7 @@
     ],
     [
       "faixa-4",
-      "faixa-5",
-      "faixa-6"
-    ],
-    [
-      "faixa-7"
+      "faixa-5"
     ]
   ],
   "faixas": [
@@ -32,36 +34,6 @@
       "id": "faixa-1",
       "branch": "spec/production-hardening-faixa-1",
       "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-1",
-      "tarefas": [
-        {
-          "id": "T-001",
-          "titulo": "Preparar build reproduzível e gate de testes",
-          "modelo": "gpt-5.6-terra",
-          "esforco": "high",
-          "arquivos": [
-            "pom.xml",
-            "posture-service/pom.xml",
-            ".mvn/wrapper/maven-wrapper.properties",
-            "mvnw",
-            "mvnw.cmd",
-            "scripts/run-spec-tests.mjs",
-            "onpspec.config.json",
-            ".github/workflows/ci.yml",
-            "src/test/java/com/genai/java/spring/build/BuildContractTest.java"
-          ],
-          "refs": [
-            "US-005",
-            "AC-015",
-            "AC-016",
-            "AC-017"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "faixa-2",
-      "branch": "spec/production-hardening-faixa-2",
-      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-2",
       "tarefas": [
         {
           "id": "T-002",
@@ -99,9 +71,9 @@
       ]
     },
     {
-      "id": "faixa-3",
-      "branch": "spec/production-hardening-faixa-3",
-      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-3",
+      "id": "faixa-2",
+      "branch": "spec/production-hardening-faixa-2",
+      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-2",
       "tarefas": [
         {
           "id": "T-003",
@@ -139,9 +111,9 @@
       ]
     },
     {
-      "id": "faixa-4",
-      "branch": "spec/production-hardening-faixa-4",
-      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-4",
+      "id": "faixa-3",
+      "branch": "spec/production-hardening-faixa-3",
+      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-3",
       "tarefas": [
         {
           "id": "T-004",
@@ -165,9 +137,9 @@
       ]
     },
     {
-      "id": "faixa-5",
-      "branch": "spec/production-hardening-faixa-5",
-      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-5",
+      "id": "faixa-4",
+      "branch": "spec/production-hardening-faixa-4",
+      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-4",
       "tarefas": [
         {
           "id": "T-005",
@@ -193,9 +165,9 @@
       ]
     },
     {
-      "id": "faixa-6",
-      "branch": "spec/production-hardening-faixa-6",
-      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-6",
+      "id": "faixa-5",
+      "branch": "spec/production-hardening-faixa-5",
+      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-5",
       "tarefas": [
         {
           "id": "T-006",
@@ -216,34 +188,30 @@
           ]
         }
       ]
-    },
+    }
+  ],
+  "sequenciais": [
     {
-      "id": "faixa-7",
-      "branch": "spec/production-hardening-faixa-7",
-      "worktree": "../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-7",
-      "tarefas": [
-        {
-          "id": "T-007",
-          "titulo": "Documentar execução, segurança e operação",
-          "modelo": "gpt-5.6-terra",
-          "esforco": "medium",
-          "arquivos": [
-            "README.md",
-            "gen-ai-with-java-spring.postman_collection.json",
-            "docker/dev/compose.yml",
-            "docker/dev/Dockerfile",
-            "docker/dev/posture-service.Dockerfile",
-            "src/test/java/com/genai/java/spring/docs/DocumentationContractTest.java"
-          ],
-          "refs": [
-            "US-007",
-            "AC-020"
-          ]
-        }
+      "id": "T-007",
+      "titulo": "Documentar execução, segurança e operação",
+      "modelo": "gpt-5.6-terra",
+      "esforco": "medium",
+      "arquivos": [
+        "README.md",
+        "gen-ai-with-java-spring.postman_collection.json",
+        "docker/dev/compose.yml",
+        "docker/dev/Dockerfile",
+        "docker/dev/posture-service.Dockerfile",
+        "src/test/java/com/genai/java/spring/docs/DocumentationContractTest.java"
+      ],
+      "refs": [
+        "US-007",
+        "AC-020"
       ]
     }
   ],
-  "sequenciais": [],
-  "concluidas": [],
+  "concluidas": [
+    "T-001"
+  ],
   "avisos": []
 }

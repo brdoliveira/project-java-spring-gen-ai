@@ -1,0 +1,204 @@
+{
+  "numTotalTestSuites": 1,
+  "numPassedTestSuites": 1,
+  "numFailedTestSuites": 0,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 23,
+  "numPassedTests": 23,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "success": true,
+  "testResults": [
+    {
+      "name": "Maven Surefire",
+      "status": "passed",
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "ApprovalIdempotencyTest"
+          ],
+          "title": "@spec:AC-014 Repeated approval schedules exactly one agent continuation",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "FileStorageServiceTest"
+          ],
+          "title": "@spec:AC-010 Payload e upload inválidos são rejeitados sem persistir arquivos",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "FileStorageServiceTest"
+          ],
+          "title": "@spec:AC-010 XML externo e extensão incompatível são rejeitados sem persistir arquivos",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "OutboundToolResilienceTest"
+          ],
+          "title": "@spec:AC-012 External calls have a timeout, limited retries and sanitized errors",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "SecurityReviewAuthorizationTest"
+          ],
+          "title": "@spec:AC-008 A review can only be read, queried or approved by its JWT subject",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "SensitiveLoggingTest"
+          ],
+          "title": "@spec:AC-011 @principle:P-005 Questions and approval notes are not written to application logs",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "BuildContractTest"
+          ],
+          "title": "@spec:AC-015 Maven Wrapper validates both services",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "BuildContractTest"
+          ],
+          "title": "@spec:AC-016 Test dependencies do not ship to production",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "BuildContractTest"
+          ],
+          "title": "@spec:AC-017 @principle:P-006 CI does not consume paid APIs",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "ConfigurationSafetyTest"
+          ],
+          "title": "@spec:AC-001 Startup scripts do not execute destructive SQL",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "ConfigurationSafetyTest"
+          ],
+          "title": "@spec:AC-002 RAG reindexing is opt-in by default and in production",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "ConfigurationSafetyTest"
+          ],
+          "title": "@spec:AC-004 Defaults do not depend on a specific machine",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "ConfigurationSafetyTest"
+          ],
+          "title": "@spec:AC-006 Production uses safe observability defaults",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "DatabaseMigrationIT"
+          ],
+          "title": "@spec:AC-003 Main database migrations preserve existing records",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "ProviderIsolationTest"
+          ],
+          "title": "@spec:AC-005 Optional providers do not prevent local startup",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "DocumentationContractTest"
+          ],
+          "title": "@spec:AC-020 README documents the complete execution, security, and operations path",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "GeneratedImageStorageTest"
+          ],
+          "title": "@spec:AC-013 Imagens concorrentes recebem arquivos distintos sem sobrescrita",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "RagEvaluationServiceTest"
+          ],
+          "title": "@spec:AC-019 Golden dataset produces deterministic retrieval metrics",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "RagEvaluationServiceTest"
+          ],
+          "title": "@spec:AC-019 Golden dataset fails when minimum retrieval metric is not reached",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "RagProductionThresholdTest"
+          ],
+          "title": "@spec:AC-018 Production filters irrelevant context below a positive threshold",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "ApiSecurityTest"
+          ],
+          "title": "@spec:AC-007 @principle:P-004 Production API requires JWT while health remains public",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "ApiSecurityTest"
+          ],
+          "title": "@spec:AC-009 Explicit local profile permits the study endpoints without JWT",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "ancestorTitles": [
+            "PostureMigrationIT"
+          ],
+          "title": "@spec:AC-003 Posture migrations preserve existing records",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    }
+  ]
+}

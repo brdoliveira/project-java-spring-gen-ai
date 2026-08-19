@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# executar-tarefas.sh — gerado por `onp-spec plano production-hardening` em 2026-08-18 18:56
+# executar-tarefas.sh — gerado por `onp-spec plano production-hardening` em 2026-08-18 19:07
 # NÃO edite à mão: mudou tasks.md ou a config, regenere o plano.
 #
 # uso:
@@ -14,7 +14,7 @@
 set -u
 set -o pipefail
 
-RUN_ID='project-java-spring-gen-ai-production-hardening-msz0x146'
+RUN_ID='project-java-spring-gen-ai-production-hardening-msz1b979'
 FEATURE='production-hardening'
 BASE_BRANCH='spec/production-hardening'
 ENGINE='C:\Users\brufe\.agents\skills\onp-spec-driven\scripts\onp-spec.mjs'
@@ -168,7 +168,7 @@ iniciar_resumos() {
   trap 'parar_resumos; node "$ENGINE" resumo "$FEATURE" --gravar >/dev/null 2>&1 || true' EXIT
 }
 
-# ── faixa-1: T-001 ──
+# ── faixa-1: T-002 ──
 executar_faixa_1() {
   local WT="$WT_BASE-faixa-1"
   preparar_worktree 'faixa-1' 'spec/production-hardening-faixa-1' "$WT" || return 1
@@ -176,37 +176,7 @@ executar_faixa_1() {
   : > "$LOG_DIR/faixa-1.log"
   (
     cd "$WT" || exit 9
-    rodar_tarefa 'faixa-1' 'T-001' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
-Leia primeiro: .spec/features/production-hardening/spec.md, .spec/features/production-hardening/tasks.md e .spec/constituicao.md.
-
-Sua tarefa (somente ela):
-T-001 — "Preparar build reproduzível e gate de testes"
-  critérios/refs: AC-015 (Maven Wrapper valida os dois serviços), AC-016 (Dependências de teste não vão para produção), AC-017 (CI não consome APIs pagas)
-  arquivos permitidos (e seus testes): pom.xml, posture-service/pom.xml, .mvn/wrapper/maven-wrapper.properties, mvnw, mvnw.cmd, scripts/run-spec-tests.mjs, onpspec.config.json, .github/workflows/ci.yml, src/test/java/com/genai/java/spring/build/BuildContractTest.java
-  mensagem de commit: "T-001 production-hardening: Preparar build reproduzível e gate de testes"
-
-Regras inegociáveis:
-- Todo critério de aceite referenciado vira teste com @spec:AC-xxx no título.
-- NUNCA enfraqueça, pule (skip/todo) ou apague um teste para passar — teste pulado não é prova e o audit acusa.
-- Rode os testes localmente com `node scripts/run-spec-tests.mjs` até passarem.
-- NÃO edite tasks.md, NÃO rode onp-spec verify/audit e NÃO toque em outras tarefas — o orquestrador cuida disso.
-- Ao final de CADA tarefa: `git add` só no que você tocou e um commit próprio.' 'gpt-5.6-terra' high
-  ) >> "$LOG_DIR/faixa-1.log" 2>&1
-  local st=$?
-  mesclar_faixa 'faixa-1' 'spec/production-hardening-faixa-1' "$WT" "$st" || return 1
-  marcar_concluidas T-001
-  return 0
-}
-
-# ── faixa-2: T-002 ──
-executar_faixa_2() {
-  local WT="$WT_BASE-faixa-2"
-  preparar_worktree 'faixa-2' 'spec/production-hardening-faixa-2' "$WT" || return 1
-  evento --tipo faixa --faixa 'faixa-2' --estado executando --tentativa "$(tentativa 'faixa-2')"
-  : > "$LOG_DIR/faixa-2.log"
-  (
-    cd "$WT" || exit 9
-    rodar_tarefa 'faixa-2' 'T-002' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
+    rodar_tarefa 'faixa-1' 'T-002' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
 Leia primeiro: .spec/features/production-hardening/spec.md, .spec/features/production-hardening/tasks.md e .spec/constituicao.md.
 
 Sua tarefa (somente ela):
@@ -221,22 +191,22 @@ Regras inegociáveis:
 - Rode os testes localmente com `node scripts/run-spec-tests.mjs` até passarem.
 - NÃO edite tasks.md, NÃO rode onp-spec verify/audit e NÃO toque em outras tarefas — o orquestrador cuida disso.
 - Ao final de CADA tarefa: `git add` só no que você tocou e um commit próprio.' 'gpt-5.6-sol' high
-  ) >> "$LOG_DIR/faixa-2.log" 2>&1
+  ) >> "$LOG_DIR/faixa-1.log" 2>&1
   local st=$?
-  mesclar_faixa 'faixa-2' 'spec/production-hardening-faixa-2' "$WT" "$st" || return 1
+  mesclar_faixa 'faixa-1' 'spec/production-hardening-faixa-1' "$WT" "$st" || return 1
   marcar_concluidas T-002
   return 0
 }
 
-# ── faixa-3: T-003 ──
-executar_faixa_3() {
-  local WT="$WT_BASE-faixa-3"
-  preparar_worktree 'faixa-3' 'spec/production-hardening-faixa-3' "$WT" || return 1
-  evento --tipo faixa --faixa 'faixa-3' --estado executando --tentativa "$(tentativa 'faixa-3')"
-  : > "$LOG_DIR/faixa-3.log"
+# ── faixa-2: T-003 ──
+executar_faixa_2() {
+  local WT="$WT_BASE-faixa-2"
+  preparar_worktree 'faixa-2' 'spec/production-hardening-faixa-2' "$WT" || return 1
+  evento --tipo faixa --faixa 'faixa-2' --estado executando --tentativa "$(tentativa 'faixa-2')"
+  : > "$LOG_DIR/faixa-2.log"
   (
     cd "$WT" || exit 9
-    rodar_tarefa 'faixa-3' 'T-003' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
+    rodar_tarefa 'faixa-2' 'T-003' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
 Leia primeiro: .spec/features/production-hardening/spec.md, .spec/features/production-hardening/tasks.md e .spec/constituicao.md.
 
 Sua tarefa (somente ela):
@@ -251,22 +221,22 @@ Regras inegociáveis:
 - Rode os testes localmente com `node scripts/run-spec-tests.mjs` até passarem.
 - NÃO edite tasks.md, NÃO rode onp-spec verify/audit e NÃO toque em outras tarefas — o orquestrador cuida disso.
 - Ao final de CADA tarefa: `git add` só no que você tocou e um commit próprio.' 'gpt-5.6-sol' high
-  ) >> "$LOG_DIR/faixa-3.log" 2>&1
+  ) >> "$LOG_DIR/faixa-2.log" 2>&1
   local st=$?
-  mesclar_faixa 'faixa-3' 'spec/production-hardening-faixa-3' "$WT" "$st" || return 1
+  mesclar_faixa 'faixa-2' 'spec/production-hardening-faixa-2' "$WT" "$st" || return 1
   marcar_concluidas T-003
   return 0
 }
 
-# ── faixa-4: T-004 ──
-executar_faixa_4() {
-  local WT="$WT_BASE-faixa-4"
-  preparar_worktree 'faixa-4' 'spec/production-hardening-faixa-4' "$WT" || return 1
-  evento --tipo faixa --faixa 'faixa-4' --estado executando --tentativa "$(tentativa 'faixa-4')"
-  : > "$LOG_DIR/faixa-4.log"
+# ── faixa-3: T-004 ──
+executar_faixa_3() {
+  local WT="$WT_BASE-faixa-3"
+  preparar_worktree 'faixa-3' 'spec/production-hardening-faixa-3' "$WT" || return 1
+  evento --tipo faixa --faixa 'faixa-3' --estado executando --tentativa "$(tentativa 'faixa-3')"
+  : > "$LOG_DIR/faixa-3.log"
   (
     cd "$WT" || exit 9
-    rodar_tarefa 'faixa-4' 'T-004' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
+    rodar_tarefa 'faixa-3' 'T-004' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
 Leia primeiro: .spec/features/production-hardening/spec.md, .spec/features/production-hardening/tasks.md e .spec/constituicao.md.
 
 Sua tarefa (somente ela):
@@ -281,22 +251,22 @@ Regras inegociáveis:
 - Rode os testes localmente com `node scripts/run-spec-tests.mjs` até passarem.
 - NÃO edite tasks.md, NÃO rode onp-spec verify/audit e NÃO toque em outras tarefas — o orquestrador cuida disso.
 - Ao final de CADA tarefa: `git add` só no que você tocou e um commit próprio.' 'gpt-5.6-terra' high
-  ) >> "$LOG_DIR/faixa-4.log" 2>&1
+  ) >> "$LOG_DIR/faixa-3.log" 2>&1
   local st=$?
-  mesclar_faixa 'faixa-4' 'spec/production-hardening-faixa-4' "$WT" "$st" || return 1
+  mesclar_faixa 'faixa-3' 'spec/production-hardening-faixa-3' "$WT" "$st" || return 1
   marcar_concluidas T-004
   return 0
 }
 
-# ── faixa-5: T-005 ──
-executar_faixa_5() {
-  local WT="$WT_BASE-faixa-5"
-  preparar_worktree 'faixa-5' 'spec/production-hardening-faixa-5' "$WT" || return 1
-  evento --tipo faixa --faixa 'faixa-5' --estado executando --tentativa "$(tentativa 'faixa-5')"
-  : > "$LOG_DIR/faixa-5.log"
+# ── faixa-4: T-005 ──
+executar_faixa_4() {
+  local WT="$WT_BASE-faixa-4"
+  preparar_worktree 'faixa-4' 'spec/production-hardening-faixa-4' "$WT" || return 1
+  evento --tipo faixa --faixa 'faixa-4' --estado executando --tentativa "$(tentativa 'faixa-4')"
+  : > "$LOG_DIR/faixa-4.log"
   (
     cd "$WT" || exit 9
-    rodar_tarefa 'faixa-5' 'T-005' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
+    rodar_tarefa 'faixa-4' 'T-005' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
 Leia primeiro: .spec/features/production-hardening/spec.md, .spec/features/production-hardening/tasks.md e .spec/constituicao.md.
 
 Sua tarefa (somente ela):
@@ -311,22 +281,22 @@ Regras inegociáveis:
 - Rode os testes localmente com `node scripts/run-spec-tests.mjs` até passarem.
 - NÃO edite tasks.md, NÃO rode onp-spec verify/audit e NÃO toque em outras tarefas — o orquestrador cuida disso.
 - Ao final de CADA tarefa: `git add` só no que você tocou e um commit próprio.' 'gpt-5.6-sol' high
-  ) >> "$LOG_DIR/faixa-5.log" 2>&1
+  ) >> "$LOG_DIR/faixa-4.log" 2>&1
   local st=$?
-  mesclar_faixa 'faixa-5' 'spec/production-hardening-faixa-5' "$WT" "$st" || return 1
+  mesclar_faixa 'faixa-4' 'spec/production-hardening-faixa-4' "$WT" "$st" || return 1
   marcar_concluidas T-005
   return 0
 }
 
-# ── faixa-6: T-006 ──
-executar_faixa_6() {
-  local WT="$WT_BASE-faixa-6"
-  preparar_worktree 'faixa-6' 'spec/production-hardening-faixa-6' "$WT" || return 1
-  evento --tipo faixa --faixa 'faixa-6' --estado executando --tentativa "$(tentativa 'faixa-6')"
-  : > "$LOG_DIR/faixa-6.log"
+# ── faixa-5: T-006 ──
+executar_faixa_5() {
+  local WT="$WT_BASE-faixa-5"
+  preparar_worktree 'faixa-5' 'spec/production-hardening-faixa-5' "$WT" || return 1
+  evento --tipo faixa --faixa 'faixa-5' --estado executando --tentativa "$(tentativa 'faixa-5')"
+  : > "$LOG_DIR/faixa-5.log"
   (
     cd "$WT" || exit 9
-    rodar_tarefa 'faixa-6' 'T-006' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
+    rodar_tarefa 'faixa-5' 'T-006' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
 Leia primeiro: .spec/features/production-hardening/spec.md, .spec/features/production-hardening/tasks.md e .spec/constituicao.md.
 
 Sua tarefa (somente ela):
@@ -341,22 +311,17 @@ Regras inegociáveis:
 - Rode os testes localmente com `node scripts/run-spec-tests.mjs` até passarem.
 - NÃO edite tasks.md, NÃO rode onp-spec verify/audit e NÃO toque em outras tarefas — o orquestrador cuida disso.
 - Ao final de CADA tarefa: `git add` só no que você tocou e um commit próprio.' 'gpt-5.6-terra' medium
-  ) >> "$LOG_DIR/faixa-6.log" 2>&1
+  ) >> "$LOG_DIR/faixa-5.log" 2>&1
   local st=$?
-  mesclar_faixa 'faixa-6' 'spec/production-hardening-faixa-6' "$WT" "$st" || return 1
+  mesclar_faixa 'faixa-5' 'spec/production-hardening-faixa-5' "$WT" "$st" || return 1
   marcar_concluidas T-006
   return 0
 }
 
-# ── faixa-7: T-007 ──
-executar_faixa_7() {
-  local WT="$WT_BASE-faixa-7"
-  preparar_worktree 'faixa-7' 'spec/production-hardening-faixa-7' "$WT" || return 1
-  evento --tipo faixa --faixa 'faixa-7' --estado executando --tentativa "$(tentativa 'faixa-7')"
-  : > "$LOG_DIR/faixa-7.log"
-  (
-    cd "$WT" || exit 9
-    rodar_tarefa 'faixa-7' 'T-007' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
+# ── sequencial T-007 (fora da seleção do usuário) ──
+executar_seq_T_007() {
+  info 'sequencial T-007 — Documentar execução, segurança e operação'
+  if rodar_tarefa seq 'T-007' 'Você executa UMA tarefa da feature "production-hardening" (fluxo onp-spec, spec-anchored).
 Leia primeiro: .spec/features/production-hardening/spec.md, .spec/features/production-hardening/tasks.md e .spec/constituicao.md.
 
 Sua tarefa (somente ela):
@@ -370,12 +335,19 @@ Regras inegociáveis:
 - NUNCA enfraqueça, pule (skip/todo) ou apague um teste para passar — teste pulado não é prova e o audit acusa.
 - Rode os testes localmente com `node scripts/run-spec-tests.mjs` até passarem.
 - NÃO edite tasks.md, NÃO rode onp-spec verify/audit e NÃO toque em outras tarefas — o orquestrador cuida disso.
-- Ao final de CADA tarefa: `git add` só no que você tocou e um commit próprio.' 'gpt-5.6-terra' medium
-  ) >> "$LOG_DIR/faixa-7.log" 2>&1
-  local st=$?
-  mesclar_faixa 'faixa-7' 'spec/production-hardening-faixa-7' "$WT" "$st" || return 1
-  marcar_concluidas T-007
-  return 0
+- Ao final de CADA tarefa: `git add` só no que você tocou e um commit próprio.' 'gpt-5.6-terra' medium >> "$LOG_DIR/seq.log" 2>&1; then
+    # commit de segurança se o agente esqueceu (rastreabilidade > perfeição)
+    if [ -n "$(git status --porcelain)" ]; then
+      git add -A && git commit -q -m 'T-007 production-hardening: Documentar execução, segurança e operação (auto-commit do plano)'
+    fi
+    marcar_concluidas T-007
+    verde "✔ T-007 concluída"
+    return 0
+  fi
+  vermelho "✘ T-007 falhou (log: $LOG_DIR/seq.log)"
+  amarelo "  reexecute só ela: bash .spec/features/production-hardening/executar-tarefas.sh --seq T-007"
+  FALHAS="$FALHAS T-007"
+  return 1
 }
 
 # ── gate: quem decide é a máquina ────────────────────────────────────
@@ -439,30 +411,24 @@ executar_tudo() {
   wait "$PID_FAIXA_1" || true
   wait "$PID_FAIXA_2" || true
   wait "$PID_FAIXA_3" || true
-  # onda 2: faixa-4 ∥ faixa-5 ∥ faixa-6
-  info "onda 2: faixa-4 ∥ faixa-5 ∥ faixa-6 — janelas limpas em paralelo"
+  # onda 2: faixa-4 ∥ faixa-5
+  info "onda 2: faixa-4 ∥ faixa-5 — janelas limpas em paralelo"
   executar_faixa_4 & PID_FAIXA_4=$!
   executar_faixa_5 & PID_FAIXA_5=$!
-  executar_faixa_6 & PID_FAIXA_6=$!
   wait "$PID_FAIXA_4" || true
   wait "$PID_FAIXA_5" || true
-  wait "$PID_FAIXA_6" || true
-  # onda 3: faixa-7
-  info "onda 3: faixa-7 — janelas limpas em paralelo"
-  executar_faixa_7 & PID_FAIXA_7=$!
-  wait "$PID_FAIXA_7" || true
+  executar_seq_T_007 || true
   encerrar tudo
 }
 
 listar() {
   echo "execução: $RUN_ID (feature $FEATURE, branch $BASE_BRANCH)"
-  echo "  faixa-1  onda 1  T-001"
-  echo "  faixa-2  onda 1  T-002"
-  echo "  faixa-3  onda 1  T-003"
-  echo "  faixa-4  onda 2  T-004"
-  echo "  faixa-5  onda 2  T-005"
-  echo "  faixa-6  onda 2  T-006"
-  echo "  faixa-7  onda 3  T-007"
+  echo "  faixa-1  onda 1  T-002"
+  echo "  faixa-2  onda 1  T-003"
+  echo "  faixa-3  onda 1  T-004"
+  echo "  faixa-4  onda 2  T-005"
+  echo "  faixa-5  onda 2  T-006"
+  echo "  seq       T-007 (sequencial)"
   echo
   echo "reexecutar uma faixa:    --faixa <id>"
   echo "reexecutar sequencial:   --seq <T-xxx>"
@@ -498,12 +464,11 @@ case "$MODO" in
       faixa-3) evento --tipo inicio --escopo "faixa:faixa-3"; iniciar_resumos; executar_faixa_3 || true; encerrar "faixa:faixa-3" ;;
       faixa-4) evento --tipo inicio --escopo "faixa:faixa-4"; iniciar_resumos; executar_faixa_4 || true; encerrar "faixa:faixa-4" ;;
       faixa-5) evento --tipo inicio --escopo "faixa:faixa-5"; iniciar_resumos; executar_faixa_5 || true; encerrar "faixa:faixa-5" ;;
-      faixa-6) evento --tipo inicio --escopo "faixa:faixa-6"; iniciar_resumos; executar_faixa_6 || true; encerrar "faixa:faixa-6" ;;
-      faixa-7) evento --tipo inicio --escopo "faixa:faixa-7"; iniciar_resumos; executar_faixa_7 || true; encerrar "faixa:faixa-7" ;;
       *) falhar "faixa desconhecida: '$ALVO' — veja as disponíveis com --listar" ;;
     esac ;;
   seq)
     case "$ALVO" in
+      T-007) evento --tipo inicio --escopo "seq:T-007"; iniciar_resumos; executar_seq_T_007 || true; encerrar "seq:T-007" ;;
       *) falhar "tarefa sequencial desconhecida: '$ALVO' — veja as disponíveis com --listar" ;;
     esac ;;
 esac

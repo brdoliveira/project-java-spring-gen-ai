@@ -38,14 +38,15 @@
 </style>
 <main>
   <h1>Plano de execução — production-hardening</h1>
-  <p class="sub">gerado por <code>onp-spec plano</code> em 2026-08-18 18:56 · regenere após mudar tasks.md</p>
+  <p class="sub">gerado por <code>onp-spec plano</code> em 2026-08-18 19:07 · regenere após mudar tasks.md</p>
   <div class="resumo">
-    <div><b>7</b> tarefa(s) em paralelo</div>
-    <div><b>7</b> faixa(s) · <b>3</b> onda(s)</div>
-    <div><b>0</b> sequencial(is)</div>
+    <div><b>5</b> tarefa(s) em paralelo</div>
+    <div><b>5</b> faixa(s) · <b>2</b> onda(s)</div>
+    <div><b>1</b> sequencial(is)</div>
+    <div>seleção do usuário: <b>T-002, T-003, T-004, T-005, T-006</b></div>
     <div>branch <code>spec/production-hardening</code></div>
   </div>
-  
+
   <div class="executor">
     <h2>Como executar — via agente</h2>
     <p>Peça ao agente (Codex) para executar o plano. Ele roda:</p>
@@ -56,23 +57,13 @@
     (<code>onp-spec resumo production-hardening --tabela</code>) e o
     <b>resumo geral de andamento</b> (<code>onp-spec resumo production-hardening</code>).</p>
   </div>
-  
+
     <section class="onda">
       <h3>Onda 1 <small>faixa-1 ∥ faixa-2 ∥ faixa-3 — em paralelo, janelas limpas</small></h3>
       <div class="grade">
       <div class="faixa">
         <h4>faixa-1 <small>branch <code>spec/production-hardening-faixa-1</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-1</code></small></h4>
-        
-        <div class="tarefa">
-          <span class="tid">T-001</span>
-          <span class="ttitulo">Preparar build reproduzível e gate de testes</span>
-          <span class="meta"><code>gpt-5.6-terra</code> · esforço <b>high</b></span>
-          <span class="arquivos"><code>pom.xml</code> <code>posture-service/pom.xml</code> <code>.mvn/wrapper/maven-wrapper.properties</code> <code>mvnw</code> <code>mvnw.cmd</code> <code>scripts/run-spec-tests.mjs</code> <code>onpspec.config.json</code> <code>.github/workflows/ci.yml</code> <code>src/test/java/com/genai/java/spring/build/BuildContractTest.java</code></span>
-        </div>
-      </div>
-      <div class="faixa">
-        <h4>faixa-2 <small>branch <code>spec/production-hardening-faixa-2</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-2</code></small></h4>
-        
+
         <div class="tarefa">
           <span class="tid">T-002</span>
           <span class="ttitulo">Tornar configuração e migrações não destrutivas</span>
@@ -81,32 +72,32 @@
         </div>
       </div>
       <div class="faixa">
-        <h4>faixa-3 <small>branch <code>spec/production-hardening-faixa-3</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-3</code></small></h4>
-        
+        <h4>faixa-2 <small>branch <code>spec/production-hardening-faixa-2</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-2</code></small></h4>
+
         <div class="tarefa">
           <span class="tid">T-003</span>
           <span class="ttitulo">Proteger APIs e garantir posse/idempotência de revisão</span>
           <span class="meta"><code>gpt-5.6-sol</code> · esforço <b>high</b></span>
           <span class="arquivos"><code>src/main/java/com/genai/java/spring/security/SecurityConfiguration.java</code> <code>src/main/java/com/genai/java/spring/security/CurrentSubject.java</code> <code>src/main/java/com/genai/java/spring/aiagent/controller/SecurityReviewController.java</code> <code>src/main/java/com/genai/java/spring/aiagent/service/SecurityReviewService.java</code> <code>src/main/java/com/genai/java/spring/aiagent/service/impl/SecurityReviewServiceImpl.java</code> <code>src/main/java/com/genai/java/spring/aiagent/dataaccess/repository/ReviewStateRepository.java</code> <code>src/main/java/com/genai/java/spring/aiagent/dataaccess/repository/impl/ReviewStateRepositoryImpl.java</code> <code>src/main/java/com/genai/java/spring/aiagent/dto/ReviewState.java</code> <code>src/main/java/com/genai/java/spring/aiagent/dto/ApprovalRequest.java</code> <code>src/main/java/com/genai/java/spring/aiagent/dto/FollowUpRequestDto.java</code> <code>src/main/resources/db/migration/V2__add_review_owner_and_version.sql</code> <code>src/test/java/com/genai/java/spring/security/ApiSecurityTest.java</code> <code>src/test/java/com/genai/java/spring/aiagent/SecurityReviewAuthorizationTest.java</code> <code>src/test/java/com/genai/java/spring/aiagent/ApprovalIdempotencyTest.java</code> <code>src/test/java/com/genai/java/spring/aiagent/SensitiveLoggingTest.java</code></span>
         </div>
-      </div></div>
-    </section>
-    <section class="onda">
-      <h3>Onda 2 <small>faixa-4 ∥ faixa-5 ∥ faixa-6 — em paralelo, janelas limpas</small></h3>
-      <div class="grade">
+      </div>
       <div class="faixa">
-        <h4>faixa-4 <small>branch <code>spec/production-hardening-faixa-4</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-4</code></small></h4>
-        
+        <h4>faixa-3 <small>branch <code>spec/production-hardening-faixa-3</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-3</code></small></h4>
+
         <div class="tarefa">
           <span class="tid">T-004</span>
           <span class="ttitulo">Endurecer uploads e armazenamento de imagens</span>
           <span class="meta"><code>gpt-5.6-terra</code> · esforço <b>high</b></span>
           <span class="arquivos"><code>src/main/java/com/genai/java/spring/aiagent/service/impl/FileStorageServiceImpl.java</code> <code>src/main/java/com/genai/java/spring/multimodality/texttoimage/GeneratedImageStorage.java</code> <code>src/main/java/com/genai/java/spring/multimodality/texttoimage/MarketingAssetController.java</code> <code>src/test/java/com/genai/java/spring/aiagent/FileStorageServiceTest.java</code> <code>src/test/java/com/genai/java/spring/multimodality/GeneratedImageStorageTest.java</code></span>
         </div>
-      </div>
+      </div></div>
+    </section>
+    <section class="onda">
+      <h3>Onda 2 <small>faixa-4 ∥ faixa-5 — em paralelo, janelas limpas</small></h3>
+      <div class="grade">
       <div class="faixa">
-        <h4>faixa-5 <small>branch <code>spec/production-hardening-faixa-5</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-5</code></small></h4>
-        
+        <h4>faixa-4 <small>branch <code>spec/production-hardening-faixa-4</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-4</code></small></h4>
+
         <div class="tarefa">
           <span class="tid">T-005</span>
           <span class="ttitulo">Isolar providers e limitar chamadas externas</span>
@@ -115,8 +106,8 @@
         </div>
       </div>
       <div class="faixa">
-        <h4>faixa-6 <small>branch <code>spec/production-hardening-faixa-6</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-6</code></small></h4>
-        
+        <h4>faixa-5 <small>branch <code>spec/production-hardening-faixa-5</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-5</code></small></h4>
+
         <div class="tarefa">
           <span class="tid">T-006</span>
           <span class="ttitulo">Criar avaliação determinística do RAG</span>
@@ -125,21 +116,17 @@
         </div>
       </div></div>
     </section>
+
     <section class="onda">
-      <h3>Onda 3 <small>faixa-7 — em paralelo, janelas limpas</small></h3>
-      <div class="grade">
-      <div class="faixa">
-        <h4>faixa-7 <small>branch <code>spec/production-hardening-faixa-7</code> · worktree <code>../onp-worktrees/project-java-spring-gen-ai-production-hardening-faixa-7</code></small></h4>
-        
+      <h3>Sequenciais <small>após as ondas, na árvore principal</small></h3>
+      <div class="grade"><div class="faixa">
         <div class="tarefa">
           <span class="tid">T-007</span>
           <span class="ttitulo">Documentar execução, segurança e operação</span>
           <span class="meta"><code>gpt-5.6-terra</code> · esforço <b>medium</b></span>
           <span class="arquivos"><code>README.md</code> <code>gen-ai-with-java-spring.postman_collection.json</code> <code>docker/dev/compose.yml</code> <code>docker/dev/Dockerfile</code> <code>docker/dev/posture-service.Dockerfile</code> <code>src/test/java/com/genai/java/spring/docs/DocumentationContractTest.java</code></span>
-        </div>
-      </div></div>
+        </div></div></div>
     </section>
-  
   <section class="onda">
     <h3>Branches e commits</h3>
     <ol>
