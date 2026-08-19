@@ -1,5 +1,6 @@
 package com.genai.java.spring.rag.rerank.processor;
 
+import com.genai.java.spring.config.ProviderProperties;
 import com.genai.java.spring.rag.config.data.RagConfigData;
 import com.genai.java.spring.rag.rerank.client.RerankerClient;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +11,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * A {@link DocumentPostProcessor} that reorders retrieved documents using a remote
@@ -28,26 +33,76 @@ public class RerankPostProcessor implements DocumentPostProcessor {
 
     private final RerankerClient rerankerClient;
     private final RagConfigData ragConfigData;
+    private final ProviderProperties providerProperties;
 
-    public RerankPostProcessor(RerankerClient rerankerClient, RagConfigData ragConfigData) {
+    public RerankPostProcessor(RerankerClient rerankerClient,
+                               RagConfigData ragConfigData,
+                               ProviderProperties providerProperties) {
         this.rerankerClient = rerankerClient;
         this.ragConfigData = ragConfigData;
+        this.providerProperties = providerProperties;
     }
 
     @Override
     public List<Document> process(Query query, List<Document> documents) {
-        if (documents.isEmpty()) {
+        if (documents.isEmpty() || !providerProperties.getCohere().isEnabled()) {
             return documents;
         }
         try {
-            double[] scores = getScores(query, documents);
+            double[] scores = getScoresWithinPolicy(query, documents);
             List<Integer> indices = sortIndices(documents, scores);
             return getTopNDocuments(documents, indices);
         } catch (Exception e) {
-            log.warn("Reranker error, returning original documents!", e);
-            //if reranker fails, don't block the answer
+            log.warn("Reranker unavailable; returning original documents ({})", e.getClass().getSimpleName());
             return documents;
         }
+    }
+
+    private double[] getScoresWithinPolicy(Query query, List<Document> documents) throws Exception {
+        ProviderProperties.Outbound outbound = providerProperties.getOutbound();
+        long deadline = System.nanoTime() + outbound.getTimeout().toNanos();
+        Exception lastFailure = null;
+
+        for (int attempt = 1; attempt <= outbound.getMaxAttempts(); attempt++) {
+            long remainingNanos = deadline - System.nanoTime();
+            if (remainingNanos <= 0) {
+                throw new TimeoutException("Reranker deadline exceeded");
+            }
+
+            FutureTask<double[]> call = new FutureTask<>(() -> getScores(query, documents));
+            Thread worker = new Thread(call, "reranker-outbound-call");
+            worker.setDaemon(true);
+            worker.start();
+            try {
+                return call.get(remainingNanos, TimeUnit.NANOSECONDS);
+            } catch (TimeoutException timeout) {
+                call.cancel(true);
+                throw timeout;
+            } catch (ExecutionException execution) {
+                call.cancel(true);
+                Throwable cause = execution.getCause();
+                lastFailure = cause instanceof Exception exception ? exception : execution;
+            } finally {
+                if (!call.isDone()) {
+                    call.cancel(true);
+                    worker.interrupt();
+                }
+            }
+
+            if (attempt < outbound.getMaxAttempts()) {
+                sleepBeforeRetry(outbound.getRetryBackoff().toNanos(), deadline);
+            }
+        }
+
+        throw lastFailure == null ? new IllegalStateException("Reranker call failed") : lastFailure;
+    }
+
+    private void sleepBeforeRetry(long backoffNanos, long deadline) throws InterruptedException, TimeoutException {
+        long remainingNanos = deadline - System.nanoTime();
+        if (remainingNanos <= 0) {
+            throw new TimeoutException("Reranker deadline exceeded");
+        }
+        TimeUnit.NANOSECONDS.sleep(Math.min(backoffNanos, remainingNanos));
     }
 
     private double[] getScores(Query query, List<Document> documents) {

@@ -38,6 +38,8 @@ import org.springframework.ai.vectorstore.pgvector.PgVectorStore;
 import org.springframework.ai.vertexai.gemini.VertexAiGeminiChatModel;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -47,6 +49,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 
 @Configuration
+@EnableConfigurationProperties(ProviderProperties.class)
 public class AIProviderConfig {
 
     @Value("classpath:/templates/vector-store-memory-system-prompt.st")
@@ -93,6 +96,7 @@ public class AIProviderConfig {
     }
 
     @Bean("queryExpanderChatClientBuilder")
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "openai", matchIfMissing = true)
     ChatClient.Builder queryExpanderChatClientBuilder(OpenAiChatModel openAiChatModel) {
         return ChatClient.builder(openAiChatModel)
                 .defaultOptions(OpenAiChatOptions.builder()
@@ -102,6 +106,7 @@ public class AIProviderConfig {
     }
 
     @Bean
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "openai", matchIfMissing = true)
     RetrievalAugmentationAdvisor ragAdvisor(@Qualifier("ragVectorStore") VectorStore vectorStore,
                                             RagConfigData ragConfigData,
                                             DomainSynonymTransformer domainSynonymTransformer,
@@ -148,6 +153,7 @@ public class AIProviderConfig {
     }
 
     @Bean("openAIChatClient")
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "openai", matchIfMissing = true)
     ChatClient openAIChatClient(OpenAiChatModel openAiChatModel,
                                 SimpleLoggerAdvisor simpleLoggerAdvisor,
                                 SafeGuardAdvisor safeGuardAdvisor,
@@ -160,11 +166,13 @@ public class AIProviderConfig {
     }
 
     @Bean("openAIGeneralChatClient")
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "openai", matchIfMissing = true)
     ChatClient openAIGeneralChatClient(OpenAiChatModel openAiChatModel) {
         return ChatClient.builder(openAiChatModel).build();
     }
 
     @Bean("openAIChatClientWithMemory")
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "openai", matchIfMissing = true)
     ChatClient openAIChatClientWithMemory(OpenAiChatModel openAiChatModel,
                                           ChatMemory chatMemory,
                                           PgVectorStore vectorStore) {
@@ -180,22 +188,8 @@ public class AIProviderConfig {
                 .build();
     }
 
-    @Bean("vertexAIChatClient")
-    ChatClient vertexAIChatClient(VertexAiGeminiChatModel vertexAiGeminiChatModel) {
-        return ChatClient.builder(vertexAiGeminiChatModel).build();
-    }
-
-    @Bean("huggingFaceChatClient")
-    ChatClient huggingFaceChatClient(HuggingfaceChatModel huggingfaceChatModel) {
-        return ChatClient.builder(huggingfaceChatModel).build();
-    }
-
-    @Bean("ollamaChatClient")
-    ChatClient ollamaChatClient(OllamaChatModel ollamaChatModel) {
-        return ChatClient.builder(ollamaChatModel).build();
-    }
-
     @Bean("openAIRAGChatClient")
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "openai", matchIfMissing = true)
     ChatClient openAIRAGChatClient(OpenAiChatModel openAiChatModel,
                                    SimpleVectorStore simpleVectorStore,
                                    SimpleLoggerAdvisor simpleLoggerAdvisor,
@@ -209,6 +203,7 @@ public class AIProviderConfig {
     }
 
     @Bean("openAIAdvancedRAGChatClient")
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "openai", matchIfMissing = true)
     ChatClient openAIAdvancedRAGChatClient(OpenAiChatModel openAiChatModel,
                                            RetrievalAugmentationAdvisor retrievalAugmentationAdvisor) {
         return ChatClient.builder(openAiChatModel)
@@ -217,6 +212,7 @@ public class AIProviderConfig {
     }
 
     @Bean("openAIAgentChatClientVision")
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "openai", matchIfMissing = true)
     ChatClient openAIAgentChatClientVision(OpenAiChatModel openAiChatModel) {
         return ChatClient.builder(openAiChatModel)
                 .defaultOptions(ChatOptions.builder()
@@ -226,6 +222,7 @@ public class AIProviderConfig {
     }
 
     @Bean("openAIAgentChatClient")
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "openai", matchIfMissing = true)
     ChatClient openAIAgentChatClient(OpenAiChatModel openAiChatModel, ChatMemory chatMemory, ContentSanitizerAdvisor contentSanitizerAdvisor) {
         return ChatClient.builder(openAiChatModel)
                 .defaultAdvisors(contentSanitizerAdvisor, MessageChatMemoryAdvisor.builder(chatMemory).build())
@@ -250,6 +247,36 @@ public class AIProviderConfig {
                 "api_key", "secret", "private_key", "token",
                 "confidential", "classified", "internal only", "Ignore previous instructions",
                 "Ignore instructions", "system prompt", "hack"));
+    }
+
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "vertexai")
+    static class VertexAiProviderConfiguration {
+
+        @Bean("vertexAIChatClient")
+        ChatClient vertexAIChatClient(VertexAiGeminiChatModel vertexAiGeminiChatModel) {
+            return ChatClient.builder(vertexAiGeminiChatModel).build();
+        }
+    }
+
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "huggingface")
+    static class HuggingFaceProviderConfiguration {
+
+        @Bean("huggingFaceChatClient")
+        ChatClient huggingFaceChatClient(HuggingfaceChatModel huggingfaceChatModel) {
+            return ChatClient.builder(huggingfaceChatModel).build();
+        }
+    }
+
+    @Configuration(proxyBeanMethods = false)
+    @ConditionalOnProperty(prefix = "app.ai", name = "provider", havingValue = "ollama")
+    static class OllamaProviderConfiguration {
+
+        @Bean("ollamaChatClient")
+        ChatClient ollamaChatClient(OllamaChatModel ollamaChatModel) {
+            return ChatClient.builder(ollamaChatModel).build();
+        }
     }
 
 }

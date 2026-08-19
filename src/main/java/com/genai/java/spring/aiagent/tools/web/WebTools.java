@@ -3,6 +3,7 @@ package com.genai.java.spring.aiagent.tools.web;
 import com.genai.java.spring.aiagent.config.data.AIAgentConfigData;
 import com.genai.java.spring.aiagent.tools.web.records.WebArgs;
 import com.genai.java.spring.aiagent.tools.web.records.WebItem;
+import com.genai.java.spring.config.ProviderProperties;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +13,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClientRequestException;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
+import reactor.core.publisher.Mono;
+import reactor.util.retry.Retry;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,12 +35,18 @@ public class WebTools {
     private final GcpTokenProvider gcpTokenProvider;
     private final AIAgentConfigData.WebToolProperties webToolProperties;
     private final ObservationRegistry registry;
+    private final ProviderProperties.Outbound outbound;
 
-    public WebTools(WebClient.Builder builder, GcpTokenProvider gcpTokenProvider, AIAgentConfigData aiAgentConfigData, ObservationRegistry registry) {
+    public WebTools(WebClient.Builder builder,
+                    GcpTokenProvider gcpTokenProvider,
+                    AIAgentConfigData aiAgentConfigData,
+                    ObservationRegistry registry,
+                    ProviderProperties providerProperties) {
         this.registry = registry;
         this.webClient = builder.baseUrl(aiAgentConfigData.getWebTool().getGoogleVertexSearch().getEndpointBaseUrl()).build();
         this.gcpTokenProvider = gcpTokenProvider;
         this.webToolProperties = aiAgentConfigData.getWebTool();
+        this.outbound = providerProperties.getOutbound();
     }
 
     @Tool(name = "web_search", description = "Fetch OWASP/NIST/CWE guidance (allowlisted domains only). Returns title/url/snippet.")
@@ -65,19 +76,17 @@ public class WebTools {
                 toolCallObservation.stop();
             }
         } catch (Exception e) {
-            return Map.of("error", "WEB_SEARCH_FAILED", "message", e.getMessage());
+            log.warn("web_search external call failed: {}", e.getClass().getSimpleName());
+            return Map.of(
+                    "error", "WEB_SEARCH_FAILED",
+                    "message", "External web search is temporarily unavailable");
         }
     }
 
     private List<WebItem> fallbackOwaspIndexSearch(String topic, int topK) {
         List<WebItem> results = new ArrayList<>();
-
-        try {
-            results.addAll(scanCheatSheets(topic));
-            results.addAll(scanASVS(topic));
-        } catch (Exception e) {
-            log.warn("Got exception on fallbackOwaspIndexSearch", e);
-        }
+        results.addAll(scanCheatSheets(topic));
+        results.addAll(scanASVS(topic));
 
         LinkedHashMap<String, WebItem> uniqueLinks = new LinkedHashMap<>();
         for (var result : results) {
@@ -88,11 +97,11 @@ public class WebTools {
     }
 
     private List<WebItem> scanCheatSheets(String topic) {
-        String html = this.webClient.get()
+        String html = execute(this.webClient.get()
                 .uri(this.webToolProperties.getOwasp().getCheatSheetProtocol()
                         + this.webToolProperties.getOwasp().getCheatSheetUrl())
                 .retrieve()
-                .bodyToMono(String.class)
+                .bodyToMono(String.class))
                 .block();
 
         if (html == null || html.isEmpty()) {
@@ -120,9 +129,9 @@ public class WebTools {
 
     private List<WebItem> scanASVS(String topic) {
         // ASVS main page contains section anchors; again, minimal parsing for demo
-        String html = webClient.get().uri(this.webToolProperties.getOwasp().getAsvsUrl())
+        String html = execute(webClient.get().uri(this.webToolProperties.getOwasp().getAsvsUrl())
                 .retrieve()
-                .bodyToMono(String.class)
+                .bodyToMono(String.class))
                 .block();
 
         if (html == null || html.isEmpty()) {
@@ -192,15 +201,32 @@ public class WebTools {
                 "pageSize", topK
         );
         String token = getToken();
-        return webClient.post()
+        return execute(webClient.post()
                 .uri("/v1/" + this.webToolProperties.getGoogleVertexSearch().getServingConfig() + ":search")
                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(body)
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<Map<String, Object>>() {
-                })
+                }))
                 .block();
+    }
+
+    private <T> Mono<T> execute(Mono<T> request) {
+        Mono<T> retried = request;
+        int retries = outbound.getMaxAttempts() - 1;
+        if (retries > 0) {
+            retried = request.retryWhen(Retry.fixedDelay(retries, outbound.getRetryBackoff())
+                    .filter(WebTools::isRetryable)
+                    .onRetryExhaustedThrow((retrySpec, signal) -> signal.failure()));
+        }
+        return retried.timeout(outbound.getTimeout());
+    }
+
+    private static boolean isRetryable(Throwable failure) {
+        return failure instanceof WebClientRequestException
+                || failure instanceof WebClientResponseException response
+                && response.getStatusCode().is5xxServerError();
     }
 
     private String getToken() {
