@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    env:
+      OFFLINE_EVALUATION: "true"
+      SPRING_PROFILES_ACTIVE: ci
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "25"
+          cache: maven
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Enable Maven Wrapper
+        run: chmod +x mvnw
+      - name: Test main service offline
+        run: ./mvnw -B -ntp test
+      - name: Test posture-service offline
+        run: ./mvnw -B -ntp -f posture-service/pom.xml test
+      - name: Verify build contracts
+        run: node scripts/run-spec-tests.mjs
